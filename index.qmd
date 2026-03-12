@@ -1,0 +1,125 @@
+---
+title: Mapping Sameness Identifier
+subtitle: Version 0.0.0
+date: 2026-XX-XX
+doi: 10.5281/zenodo.XXXX
+authors:
+- name: Jakob Voß
+  orcid: 0000-0002-7613-4123
+  affiliations:
+   - name: Verbundzentrale des GBV (VZG)
+- name: Charles Tapley Hoyt
+  orcid: ...
+  affiliations:
+   - name: ...
+abstract: |
+ This document specifies a content-based identifier ...
+---
+
+# Introduction
+
+## Motivation
+
+- Identifiers are required to refer to individual mappings
+- but Individual mappings often have no identifier 
+- What makes two mappings the same?
+- This depends on use case
+- One common use case is to refer to mappings based on their content, indepdendent of metadata such auch when the mapping was created and where it is stored
+- Example: reviewing mappings
+- What is the content of a mappping (see section [Mappings](#mappings))
+
+...
+
+## Terminology
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", "SHOULD NOT",
+"RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to
+be interpreted as described in BCP 14 ([RFC 2119] and [RFC 8174]) when, and
+only when, they appear in all capitals, as shown here.
+
+# Mappings
+
+TODO: formal but abstract definition of a mapping
+
+- Non-empty set of sources/subjects
+- Non-empty set of targets/objects
+- A predicate (aka mapping type)
+- Whether the mapping is positive (default) or negative
+
+Notes: 
+- some applications also allow empty sets. This specification does not cover these!
+- some applications don't support negative mappings
+
+Questions: 
+
+- URIs, or IRIs or IRI references (aka relative IRIs)?
+- Limited or open list of possible predicates and how to express them, e.g. URI
+
+Note: The same concept may be referenced by different identifiers. Normlization of these to one preferred is out of the scope of this specification.
+
+# Identifier
+
+TODO: how to derive identifier from mapping
+
+Questions:
+
+- Hash value (and if so: which method?) or recoverable content or parts of the content?
+- Order of elements
+- Separator characters
+- ...
+
+# IRI Form
+
+- Fundamental part of the identifier or optional?
+- URI or IRI?
+- Which Namespace?
+
+# References
+
+## Normative References
+
+[RFC 2119]: https://tools.ietf.org/html/rfc2119
+[RFC 8174]: https://tools.ietf.org/html/rfc8174
+
+- Bradner, S.: _Key words for use in RFCs to Indicate Requirement Levels_.
+  BCP 14, RFC 2119, March 1997,
+  <http://www.rfc-editor.org/info/rfc2119>.
+              
+- Leiba, B.:  _Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words_.
+  BCP 14, RFC 8174, May 2017,
+  <http://www.rfc-editor.org/info/rfc8174>.
+  
+- URI/IRI?
+
+The following are probably not normative:
+
+- The Unicode Consortium: _The Unicode Standard_.
+  <http://www.unicode.org/versions/latest/>
+
+- Yergeau, F.: _UTF-8, a transformation format of ISO 10646._
+  RFC 3629, November 2003. <https://tools.ietf.org/html/rfc3629>
+
+## Informative references
+
+- Bray, T.: _The JavaScript Object Notation (JSON) Data Interchange Format_.
+  RFC 8259, December 2017. <https://tools.ietf.org/html/rfc8259>
+
+# Appendices {.unnumbered}
+
+The following information is non-normative.
+
+...
+
+## Changes {.unnumbered}
+
+This document is managed in a revision control system at <https://github.com/ts4nfdi/mapping-sameness-identifier>,
+including an [issue tracker](https://github.com/ts4nfdi/mapping-sameness-identifier/issues).
+
+- **Version 0.0.0**
+
+  Working draft
+
+## Acknowledgements {.unnumbered}
+
+...
+

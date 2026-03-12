@@ -1,0 +1,47 @@
+project:
+  type: manuscript
+  output-dir: docs
+  render:
+    - "!*.md"
+manuscript:
+  article: index.qmd
+format:
+  html:
+    number-sections: true
+    code-line-numbers: false
+    css: style.css
+    highlight-style: kate
+  # requires install  texlive-fonts-extra
+  pdf:
+    number-sections: true
+    highlight-style: kate
+    documentclass: scrartcl
+    papersize: a4paper
+    toc: true
+    toc-depth: 2    
+    keep-tex: true
+    fontsize: 11pt
+    classoption:
+     - DIV=14
+     - BCOR=0mm
+     - headings=standardclasses
+    fig-pos: "H"
+    template-partials:
+     - title.tex
+    include-in-header:
+      text: |
+        \usepackage{orcidlink}
+        \usepackage[noblocks]{authblk}
+        \renewcommand*{\Authsep}{, }
+        \renewcommand*{\Authand}{, }
+        \renewcommand*{\Authands}{, }
+        \renewcommand\Affilfont{\small}
+        \AtBeginDocument{
+          \definecolor{shadecolor}{RGB}{233,233,233}
+          \floatstyle{plaintop}
+          \captionsetup[codelisting]{font=small,labelfont=bf,singlelinecheck=false,justification=justified}
+          \setlength{\abovecaptionskip}{-2mm}
+          \restylefloat{codelisting}
+          \floatplacement{codelisting}{H}
+          \AtEndEnvironment{codelisting}{\vspace*{-6mm}}
+        }

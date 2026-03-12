@@ -1,0 +1,9 @@
+pre.numberSource code > span > a:first-child::before {
+  border-right: 1px dotted #666;
+  color: #666;
+}
+figure {
+    box-shadow: 0px 0px 5px 0px #ccc;
+    border: 1px solid #ccc;
+    padding: 0rem 0.5rem;
+}

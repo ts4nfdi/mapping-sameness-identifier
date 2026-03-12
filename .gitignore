@@ -1,0 +1,4 @@
+/.quarto/
+/site_libs/
+/docs/_tex/
+*.log
