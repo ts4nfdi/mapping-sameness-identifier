@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-03-13">
 
 <title>Mapping Sameness Identifier</title>
 <style>
@@ -43,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 ">
 <meta name="citation_author" content="Jakob Voß">
 <meta name="citation_author" content="Charles Tapley Hoyt">
-<meta name="citation_publication_date" content="NaN-NaN-NaN">
-<meta name="citation_cover_date" content="NaN-NaN-NaN">
-<meta name="citation_year" content="NaN">
-<meta name="citation_online_date" content="NaN-NaN-NaN">
+<meta name="citation_publication_date" content="2026-03-13">
+<meta name="citation_cover_date" content="2026-03-13">
+<meta name="citation_year" content="2026">
+<meta name="citation_online_date" content="2026-03-13">
 <meta name="citation_doi" content="10.5281/zenodo.XXXX">
 <meta name="citation_language" content="en">
 </head>
@@ -91,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">Invalid Date</p>
+              <p class="date">March 13, 2026</p>
             </div>
           </div>
           
@@ -126,18 +127,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions"><span class="header-section-number">2</span> Definitions</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">1.1</span> Motivation</a></li>
-  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology"><span class="header-section-number">1.2</span> Terminology</a></li>
+  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology"><span class="header-section-number">2.1</span> Terminology</a></li>
+  <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping"><span class="header-section-number">2.2</span> Mapping</a></li>
   </ul></li>
-  <li><a href="#mappings" id="toc-mappings" class="nav-link" data-scroll-target="#mappings"><span class="header-section-number">2</span> Mappings</a></li>
-  <li><a href="#identifier" id="toc-identifier" class="nav-link" data-scroll-target="#identifier"><span class="header-section-number">3</span> Identifier</a></li>
-  <li><a href="#iri-form" id="toc-iri-form" class="nav-link" data-scroll-target="#iri-form"><span class="header-section-number">4</span> IRI Form</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a>
+  <li><a href="#identifier" id="toc-identifier" class="nav-link" data-scroll-target="#identifier"><span class="header-section-number">3</span> Identifier</a>
   <ul class="collapse">
-  <li><a href="#normative-references" id="toc-normative-references" class="nav-link" data-scroll-target="#normative-references"><span class="header-section-number">5.1</span> Normative References</a></li>
-  <li><a href="#informative-references" id="toc-informative-references" class="nav-link" data-scroll-target="#informative-references"><span class="header-section-number">5.2</span> Informative references</a></li>
+  <li><a href="#elements" id="toc-elements" class="nav-link" data-scroll-target="#elements"><span class="header-section-number">3.1</span> Elements</a></li>
+  <li><a href="#generation" id="toc-generation" class="nav-link" data-scroll-target="#generation"><span class="header-section-number">3.2</span> Generation</a></li>
+  <li><a href="#iri-form" id="toc-iri-form" class="nav-link" data-scroll-target="#iri-form"><span class="header-section-number">3.3</span> IRI Form</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a>
+  <ul class="collapse">
+  <li><a href="#normative-references" id="toc-normative-references" class="nav-link" data-scroll-target="#normative-references"><span class="header-section-number">4.1</span> Normative References</a></li>
+  <li><a href="#informative-references" id="toc-informative-references" class="nav-link" data-scroll-target="#informative-references"><span class="header-section-number">4.2</span> Informative references</a></li>
   </ul></li>
   <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
   <ul class="collapse">
@@ -158,24 +163,24 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<section id="motivation" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1.1</span> Motivation</h2>
-<p>Mappings (also known as terminology mappings, correspondences, or semantic alignments) are relevant to integrate and compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of mapping identifiers exist:</p>
+<p>Mappings (also known as <em>terminology mappings</em>, <em>correspondences</em>, or <em>semantic alignments</em>) are relevant to integrate and to compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of mapping identifiers exist:</p>
 <ul>
-<li>Assigned identifiers must explicitly be generated once by the source of a mapping and carried along with it.</li>
-<li>Derived identifiers can be generated automatically from the content of a mapping</li>
+<li><strong>Assigned identifiers</strong> must explicitly be generated once by the source of a mapping and carried along with it.</li>
+<li><strong>Derived identifiers</strong> (also known as <em>content-based identifiers</em>) can be generated automatically from the content of a mapping.</li>
 </ul>
-<p>This specification defines a derived identifier (also known as content-based identifier) for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.</p>
+<p>This specification defines a derived identifier for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.</p>
 <p>This specification consists of a definition of <a href="#mappings">mapping content</a> and the definition of a method to derive an identifier from the content. The method does not depend on any data format or programming language.</p>
+<p>See <a href="https://github.com/ts4nfdi/mapping-sameness-identifier/issues" class="uri">https://github.com/ts4nfdi/mapping-sameness-identifier/issues</a> for issues.</p>
 </section>
-<section id="terminology" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="terminology"><span class="header-section-number">1.2</span> Terminology</h2>
+<section id="definitions" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Definitions</h1>
+<section id="terminology" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="terminology"><span class="header-section-number">2.1</span> Terminology</h2>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 (<a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and <a href="https://tools.ietf.org/html/rfc8174">RFC 8174</a>) when, and only when, they appear in all capitals, as shown here.</p>
 </section>
-</section>
-<section id="mappings" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Mappings</h1>
-<p>A mapping is a 4-tuple of:</p>
+<section id="mapping" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="mapping"><span class="header-section-number">2.2</span> Mapping</h2>
+<p>A <strong>mapping</strong> is a 4-tuple of:</p>
 <ul>
 <li><strong>subjects</strong>: a non-empty set of absolute IRIs</li>
 <li><strong>objects</strong>: a non-empty set of absolute IRIs</li>
@@ -185,42 +190,51 @@ ul.task-list li input[type="checkbox"] {
 <p>Notes: - some applications also allow empty sets. This specification does not cover these! - some applications don’t support negative mappings - some applications only support subjects and objects of one element (1-to-1-mappings)</p>
 <p>Questions:</p>
 <ul>
-<li>URIs, or IRIs or IRI references (aka relative IRIs)?</li>
-<li>Limited or open list of possible predicates and how to express them, e.g.&nbsp;URI</li>
+<li>Limited or open list of possible predicates and how to express them, e.g.&nbsp;CURIE or special character such as <code>=</code>?</li>
 </ul>
 <p>Note: The same concept may be referenced by different identifiers. Normlization of these to one preferred is out of the scope of this specification.</p>
 </section>
+</section>
 <section id="identifier" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Identifier</h1>
-<p>TODO: how to derive identifier from mapping</p>
+<section id="elements" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="elements"><span class="header-section-number">3.1</span> Elements</h2>
+<p>The truth value is represented by character <code>!</code> for negative mappings and the empty string for affirmative mappings. This allows for each filtering of negative mappings.</p>
+<p>All IRIs SHOULD be based on NFC-normalized Unicode strings (see <a href="https://tools.ietf.org/html/rfc3987">RFC 3987</a> section 5.3.2.4).</p>
+<p>IRI per RFC 3987 section 5.3</p>
+</section>
+<section id="generation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="generation"><span class="header-section-number">3.2</span> Generation</h2>
 <p>Questions:</p>
 <ul>
 <li>Hash value (and if so: which method?) or recoverable content or parts of the content?</li>
-<li>Order of elements</li>
+<li>Order of elements, where to put truth value?</li>
 <li>Two separator characters:
 <ul>
 <li>between multiple elements of subjects and objects, respectively</li>
 <li>between subject, predicate, object</li>
 </ul></li>
-<li>Where to put truth value</li>
+<li>The resulting string MUST be encoded in UTF-8</li>
 </ul>
 </section>
-<section id="iri-form" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> IRI Form</h1>
+<section id="iri-form" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="iri-form"><span class="header-section-number">3.3</span> IRI Form</h2>
+<p>To use a mapping sameness identifier as IRI, the generated string is appended to URI namespace string …. (TODO)</p>
 <ul>
 <li>Fundamental part of the identifier or optional?</li>
 <li>URI or IRI?</li>
 <li>Which Namespace?</li>
 </ul>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
-<section id="normative-references" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="normative-references"><span class="header-section-number">5.1</span> Normative References</h2>
+</section>
+<section id="references" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="normative-references" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="normative-references"><span class="header-section-number">4.1</span> Normative References</h2>
 <ul>
 <li><p>Bradner, S.: <em>Key words for use in RFCs to Indicate Requirement Levels</em>. BCP 14, RFC 2119, March 1997, <a href="http://www.rfc-editor.org/info/rfc2119" class="uri">http://www.rfc-editor.org/info/rfc2119</a>.</p></li>
+<li><p>Dürst, M. and Suignard, M.: <em>Internationalized Resource Identifiers (IRIs)</em>. RFC 3987, January 2005. <a href="https://www.rfc-editor.org/info/rfc3987" class="uri">https://www.rfc-editor.org/info/rfc3987</a>.</p></li>
 <li><p>Leiba, B.: <em>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</em>. BCP 14, RFC 8174, May 2017, <a href="http://www.rfc-editor.org/info/rfc8174" class="uri">http://www.rfc-editor.org/info/rfc8174</a>.</p></li>
-<li><p>URI/IRI?</p></li>
 </ul>
 <p>The following are probably not normative:</p>
 <ul>
@@ -228,10 +242,11 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Yergeau, F.: <em>UTF-8, a transformation format of ISO 10646.</em> RFC 3629, November 2003. <a href="https://tools.ietf.org/html/rfc3629" class="uri">https://tools.ietf.org/html/rfc3629</a></p></li>
 </ul>
 </section>
-<section id="informative-references" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="informative-references"><span class="header-section-number">5.2</span> Informative references</h2>
+<section id="informative-references" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="informative-references"><span class="header-section-number">4.2</span> Informative references</h2>
 <ul>
-<li>Bray, T.: <em>The JavaScript Object Notation (JSON) Data Interchange Format</em>. RFC 8259, December 2017. <a href="https://tools.ietf.org/html/rfc8259" class="uri">https://tools.ietf.org/html/rfc8259</a></li>
+<li><p>Bray, T.: <em>The JavaScript Object Notation (JSON) Data Interchange Format</em>. RFC 8259, December 2017. <a href="https://tools.ietf.org/html/rfc8259" class="uri">https://tools.ietf.org/html/rfc8259</a></p></li>
+<li><p>SSSOM and JSKOS?</p></li>
 </ul>
 </section>
 </section>
