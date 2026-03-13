@@ -13,29 +13,25 @@ authors:
   affiliations:
    - name: RWTH Aachen
 abstract: |
- This document specifies a content-based identifier ...
+ This document specifies a content-based identifier for mappings.
 ---
 
 # Introduction
 
 ## Motivation
 
-- Identifiers are required to refer to individual mappings
-- but Individual mappings often have no identifier 
-- What makes two mappings the same?
-- This depends on use case
-- One common use case is to refer to mappings based on their content, indepdendent of metadata such auch when the mapping was created and where it is stored
-- Example: reviewing mappings
-- What is the content of a mappping (see section [Mappings](#mappings))
+Mappings (also known as terminology mappings, correspondences, or semantic alignments) are relevant to integrate and compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of mapping identifiers exist:
 
-...
+- Assigned identifiers must explicitly be generated once by the source of a mapping and carried along with it.
+- Derived identifiers can be generated automatically from the content of a mapping
+
+This specification defines a derived identifier (also known as content-based identifier) for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.
+
+This specification consists of a definition of [mapping content](#mappings) and the definition of a method to derive an identifier from the content. The method does not depend on any data format or programming language.
 
 ## Terminology
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", "SHOULD NOT",
-"RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to
-be interpreted as described in BCP 14 ([RFC 2119] and [RFC 8174]) when, and
-only when, they appear in all capitals, as shown here.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 ([RFC 2119] and [RFC 8174]) when, and only when, they appear in all capitals, as shown here.
 
 # Mappings
 
