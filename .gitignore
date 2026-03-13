@@ -2,3 +2,5 @@
 /site_libs/
 /docs/_tex/
 *.log
+
+**/*.quarto_ipynb

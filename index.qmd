@@ -9,9 +9,9 @@ authors:
   affiliations:
    - name: Verbundzentrale des GBV (VZG)
 - name: Charles Tapley Hoyt
-  orcid: ...
+  orcid: 0000-0003-4423-4370
   affiliations:
-   - name: ...
+   - name: RWTH Aachen
 abstract: |
  This document specifies a content-based identifier ...
 ---
@@ -39,16 +39,18 @@ only when, they appear in all capitals, as shown here.
 
 # Mappings
 
-TODO: formal but abstract definition of a mapping
+A mapping is a 4-tuple of:
 
-- Non-empty set of sources/subjects
-- Non-empty set of targets/objects
-- A predicate (aka mapping type)
-- Whether the mapping is positive (default) or negative
+- **subjects**: a non-empty set of absolute IRIs
+- **objects**: a non-empty set of absolute IRIs
+- **predicate**: an absolute IRI, also known as mapping type
+- **truth value**: either true for affirmative mappings or false for negative mappings
+
 
 Notes: 
 - some applications also allow empty sets. This specification does not cover these!
 - some applications don't support negative mappings
+- some applications only support subjects and objects of one element (1-to-1-mappings)
 
 Questions: 
 
@@ -65,8 +67,10 @@ Questions:
 
 - Hash value (and if so: which method?) or recoverable content or parts of the content?
 - Order of elements
-- Separator characters
-- ...
+- Two separator characters:
+    - between multiple elements of subjects and objects, respectively
+    - between subject, predicate, object
+- Where to put truth value
 
 # IRI Form
 
