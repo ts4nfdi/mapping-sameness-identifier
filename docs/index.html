@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -146,11 +181,9 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
   <ul class="collapse">
-  <li><a href="#sssom-examples" id="toc-sssom-examples" class="nav-link" data-scroll-target="#sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</a>
-  <ul class="collapse">
-  <li><a href="#jskos-example" id="toc-jskos-example" class="nav-link" data-scroll-target="#jskos-example"><span class="header-section-number">4.3.1</span> JSKOS example</a></li>
-  <li><a href="#rdf-examples" id="toc-rdf-examples" class="nav-link" data-scroll-target="#rdf-examples"><span class="header-section-number">4.3.2</span> RDF examples</a></li>
-  </ul></li>
+  <li><a href="#sssom-examples" id="toc-sssom-examples" class="nav-link" data-scroll-target="#sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</a></li>
+  <li><a href="#jskos-example" id="toc-jskos-example" class="nav-link" data-scroll-target="#jskos-example"><span class="header-section-number">4.4</span> JSKOS example</a></li>
+  <li><a href="#rdf-examples" id="toc-rdf-examples" class="nav-link" data-scroll-target="#rdf-examples"><span class="header-section-number">4.5</span> RDF examples</a></li>
   <li><a href="#changes" id="toc-changes" class="nav-link" data-scroll-target="#changes">Changes</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
@@ -267,12 +300,31 @@ ul.task-list li input[type="checkbox"] {
 <section id="sssom-examples" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</h2>
 <p>…</p>
-<section id="jskos-example" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="jskos-example"><span class="header-section-number">4.3.1</span> JSKOS example</h3>
-<p>…</p>
 </section>
-<section id="rdf-examples" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="rdf-examples"><span class="header-section-number">4.3.2</span> RDF examples</h3>
+<section id="jskos-example" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="jskos-example"><span class="header-section-number">4.4</span> JSKOS example</h2>
+<p>Mappings can be expressed in JSKOS data format with its <a href="https://gbv.github.io/jskos/#mapping">Mapping Object</a>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2004/02/skos/core#mappingRelation"</span><span class="ot">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2002/07/owl#sameAs"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/A"</span> <span class="fu">}</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.com/B"</span> <span class="fu">}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note that in this example <a href="http://www.w3.org/2004/02/skos/core#mappingRelation" class="uri">http://www.w3.org/2004/02/skos/core#mappingRelation</a> does not encode the mapping predicate but the fact that this JSON object is a JSKOS mapping!</p>
+<p>JSKOS supports mapping sources and mapping objects with multiple source but negative mappings are not supported yet (see <a href="https://github.com/gbv/jskos/issues/173">this issue</a>).</p>
+</section>
+<section id="rdf-examples" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="rdf-examples"><span class="header-section-number">4.5</span> RDF examples</h2>
 <p>A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.</p>
 <p>Example: the RDF statement</p>
 <pre class="ttl"><code>&lt;http://example.org/A&gt; &lt;http://www.w3.org/2002/07/owl#sameAs&gt; &lt;http://example.com/B&gt; .</code></pre>
@@ -280,7 +332,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to <em>express</em> mappings beyond non-negative 1-to-1 mappings is an anti-pattern:</p>
 <pre class="ttl"><code># Don't do this, it's a contradiction:
 &lt;some:mapping:sameness:id:of:non:negative:mapping&gt; a ontology:NegativeMapping .</code></pre>
-</section>
 </section>
 <section id="changes" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="changes">Changes</h2>

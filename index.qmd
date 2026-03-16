@@ -131,11 +131,34 @@ The following information is non-normative.
 
 ...
 
-### JSKOS example
+## JSKOS example
 
-...
+Mappings can be expressed in JSKOS data format with its [Mapping Object](https://gbv.github.io/jskos/#mapping):
 
-### RDF examples
+~~~json
+{
+  "type": [
+    "http://www.w3.org/2004/02/skos/core#mappingRelation",
+    "http://www.w3.org/2002/07/owl#sameAs"
+  ],
+  "from": {
+    "memberSet": [ 
+      { "uri": "http://example.org/A" } 
+    ]
+  },
+  "to": {
+    "memberSet": [ 
+      { "uri": "http://example.com/B" }
+    ]
+  }
+}
+~~~
+
+Note that in this example <http://www.w3.org/2004/02/skos/core#mappingRelation> does not encode the mapping predicate but the fact that this JSON object is a JSKOS mapping!
+
+JSKOS supports mapping sources and mapping objects with multiple source but negative mappings are not supported yet (see [this issue](https://github.com/gbv/jskos/issues/173)).
+
+## RDF examples
 
 A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.
 
