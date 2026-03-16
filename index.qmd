@@ -44,10 +44,13 @@ A **mapping** is a 4-tuple of:
 - **predicate**: an absolute IRI, also known as mapping type
 - **truth value**: either true for affirmative mappings or false for negative mappings
 
+The mapping is also called *1-to-1 mapping*, if both subjects and objects contain one IRI each.
+
 Notes:
+
 - some applications also allow empty sets. This specification does not cover these!
 - some applications don't support negative mappings
-- some applications only support subjects and objects of one element (1-to-1-mappings)
+- some applications only support 1-to-1-mappings
 
 Questions: 
 
@@ -124,7 +127,32 @@ The following are probably not normative:
 
 The following information is non-normative.
 
+## SSSOM examples
+
 ...
+
+### JSKOS example
+
+...
+
+### RDF examples
+
+A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.
+
+Example: the RDF statement
+
+~~~ttl
+<http://example.org/A> <http://www.w3.org/2002/07/owl#sameAs> <http://example.com/B> .
+~~~
+
+Has mapping sameness identifier ...(TODO)...
+
+Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to *express* mappings beyond non-negative 1-to-1 mappings is an anti-pattern:
+
+~~~ttl
+# Don't do this, it's a contradiction:
+<some:mapping:sameness:id:of:non:negative:mapping> a ontology:NegativeMapping .
+~~~
 
 ## Changes {.unnumbered}
 

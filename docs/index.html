@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-13">
+<meta name="dcterms.date" content="2026-03-16">
 
 <title>Mapping Sameness Identifier</title>
 <style>
@@ -44,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 ">
 <meta name="citation_author" content="Jakob Voß">
 <meta name="citation_author" content="Charles Tapley Hoyt">
-<meta name="citation_publication_date" content="2026-03-13">
-<meta name="citation_cover_date" content="2026-03-13">
+<meta name="citation_publication_date" content="2026-03-16">
+<meta name="citation_cover_date" content="2026-03-16">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-03-13">
+<meta name="citation_online_date" content="2026-03-16">
 <meta name="citation_doi" content="10.5281/zenodo.XXXX">
 <meta name="citation_language" content="en">
 </head>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">March 13, 2026</p>
+              <p class="date">March 16, 2026</p>
             </div>
           </div>
           
@@ -146,6 +146,11 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
   <ul class="collapse">
+  <li><a href="#sssom-examples" id="toc-sssom-examples" class="nav-link" data-scroll-target="#sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</a>
+  <ul class="collapse">
+  <li><a href="#jskos-example" id="toc-jskos-example" class="nav-link" data-scroll-target="#jskos-example"><span class="header-section-number">4.3.1</span> JSKOS example</a></li>
+  <li><a href="#rdf-examples" id="toc-rdf-examples" class="nav-link" data-scroll-target="#rdf-examples"><span class="header-section-number">4.3.2</span> RDF examples</a></li>
+  </ul></li>
   <li><a href="#changes" id="toc-changes" class="nav-link" data-scroll-target="#changes">Changes</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
@@ -187,7 +192,13 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>predicate</strong>: an absolute IRI, also known as mapping type</li>
 <li><strong>truth value</strong>: either true for affirmative mappings or false for negative mappings</li>
 </ul>
-<p>Notes: - some applications also allow empty sets. This specification does not cover these! - some applications don’t support negative mappings - some applications only support subjects and objects of one element (1-to-1-mappings)</p>
+<p>The mapping is also called <em>1-to-1 mapping</em>, if both subjects and objects contain one IRI each.</p>
+<p>Notes:</p>
+<ul>
+<li>some applications also allow empty sets. This specification does not cover these!</li>
+<li>some applications don’t support negative mappings</li>
+<li>some applications only support 1-to-1-mappings</li>
+</ul>
 <p>Questions:</p>
 <ul>
 <li>Limited or open list of possible predicates and how to express them, e.g.&nbsp;CURIE or special character such as <code>=</code>?</li>
@@ -253,7 +264,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="appendices" class="level1 unnumbered">
 <h1 class="unnumbered">Appendices</h1>
 <p>The following information is non-normative.</p>
+<section id="sssom-examples" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</h2>
 <p>…</p>
+<section id="jskos-example" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="jskos-example"><span class="header-section-number">4.3.1</span> JSKOS example</h3>
+<p>…</p>
+</section>
+<section id="rdf-examples" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="rdf-examples"><span class="header-section-number">4.3.2</span> RDF examples</h3>
+<p>A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.</p>
+<p>Example: the RDF statement</p>
+<pre class="ttl"><code>&lt;http://example.org/A&gt; &lt;http://www.w3.org/2002/07/owl#sameAs&gt; &lt;http://example.com/B&gt; .</code></pre>
+<p>Has mapping sameness identifier …(TODO)…</p>
+<p>Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to <em>express</em> mappings beyond non-negative 1-to-1 mappings is an anti-pattern:</p>
+<pre class="ttl"><code># Don't do this, it's a contradiction:
+&lt;some:mapping:sameness:id:of:non:negative:mapping&gt; a ontology:NegativeMapping .</code></pre>
+</section>
+</section>
 <section id="changes" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="changes">Changes</h2>
 <p>This document is managed in a revision control system at <a href="https://github.com/ts4nfdi/mapping-sameness-identifier" class="uri">https://github.com/ts4nfdi/mapping-sameness-identifier</a>, including an <a href="https://github.com/ts4nfdi/mapping-sameness-identifier/issues">issue tracker</a>.</p>
