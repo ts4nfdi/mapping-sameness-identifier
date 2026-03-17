@@ -1,64 +1,153 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.8.26">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="dcterms.date" content="2026-03-17">
 
-<meta name="dcterms.date" content="2026-03-17">
+    <title>Mapping Sameness Identifier</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
 
-<title>Mapping Sameness Identifier</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
 
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
 
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="site_libs/manuscript-notebook/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -71,12 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-1669027bc8193111335a1c5e4244fe4b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="style.css">
-<meta name="citation_title" content="Mapping Sameness Identifier">
+     <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">  
+        <link rel="stylesheet" href="style.css">
+      <meta name="citation_title" content="Mapping Sameness Identifier">
 <meta name="citation_abstract" content="This document specifies a content-based identifier for mappings.
 ">
 <meta name="citation_author" content="Jakob Voß">
@@ -89,9 +176,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="citation_language" content="en">
 </head>
 
-<body class="quarto-light">
+  <body class="quarto-notebook quarto-light">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
 
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+            <a href="./index.qmd" class="btn btn-primary quarto-download-embed" download="index.qmd">Download Source</a>
+          </div>
+
+     <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Mapping Sameness Identifier</h1>
@@ -145,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></p></div></div></div>
+      </div>
     </div>
 
     <div>
@@ -186,18 +280,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="index-preview.html"><i class="bi bi-journal-code"></i>Article Notebook</a></li></ul></div></nav>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-
-
-  
-
-
-<section id="introduction" class="level1" data-number="1">
+       <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>Mappings (also known as <em>terminology mappings</em>, <em>correspondences</em>, or <em>semantic alignments</em>) are relevant to integrate and to compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of mapping identifiers exist:</p>
 <ul>
@@ -409,7 +498,11 @@ Warning
 <section id="implementations" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="implementations"><span class="header-section-number">4.6</span> Implementations</h2>
 <p>The following draft does not comply with the specification yet:</p>
-<div class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-startfrom="217" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 216;"><span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a>viewof subject <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({ <span class="dt">label</span><span class="op">:</span> <span class="st">"subject"</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"IRIs, separated by |"</span> })</span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a>viewof truth <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>([<span class="st">"negative"</span>])</span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a>viewof predicate <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({ <span class="dt">label</span><span class="op">:</span> <span class="st">"predicate"</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"IRI"</span> })</span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>viewof object <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({ <span class="dt">label</span><span class="op">:</span> <span class="st">"object"</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"IRIs, separated by |"</span> })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -438,8 +531,15 @@ Warning
 </div>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-1" href="index-preview.html">Source: Article Notebook</a></div>
-<div class="cell">
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-startfrom="224" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 223;"><span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a>id <span class="op">=</span> {</span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> message <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>subject<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>predicate<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>object<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> hashBuffer <span class="op">=</span> <span class="cf">await</span> crypto<span class="op">.</span><span class="at">subtle</span><span class="op">.</span><span class="fu">digest</span>(<span class="st">'SHA-256'</span><span class="op">,</span> <span class="kw">new</span> <span class="fu">TextEncoder</span>()<span class="op">.</span><span class="fu">encode</span>(message))</span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> id <span class="op">=</span> <span class="kw">new</span> <span class="bu">Uint8Array</span>(hashBuffer)<span class="op">.</span><span class="fu">toBase64</span>() <span class="co">// </span><span class="al">TODO</span><span class="co">: url</span></span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`mapping:</span><span class="sc">${</span>truth<span class="op">.</span><span class="at">length</span><span class="op">?</span><span class="st">"!"</span><span class="op">:</span><span class="st">""</span><span class="sc">}${</span>id<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -454,10 +554,10 @@ Warning
 </div>
 </div>
 </div>
-</div>
+</div></div>
 <p>Command line, without Unicode:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">'http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat'</span> <span class="kw">|</span> <span class="fu">sha256sum</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d\ </span> <span class="kw">|</span> <span class="ex">xxd</span> <span class="at">-r</span> <span class="at">-p</span> <span class="kw">|</span> <span class="ex">basenc</span> <span class="at">--base64url</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">laCICCqysqaGOK67zD_j4PIp2nWotb27nz-M1eHkKG4=</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">'http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat'</span> <span class="kw">|</span> <span class="fu">sha256sum</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d\ </span> <span class="kw">|</span> <span class="ex">xxd</span> <span class="at">-r</span> <span class="at">-p</span> <span class="kw">|</span> <span class="ex">basenc</span> <span class="at">--base64url</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">laCICCqysqaGOK67zD_j4PIp2nWotb27nz-M1eHkKG4=</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="changes" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="changes">Changes</h2>
@@ -472,10 +572,8 @@ Warning
 <p>…</p>
 </section>
 </section>
-
-</main>
-<!-- /main column -->
-<script type="ojs-module-contents">
+     </main>
+<!-- /main column -->  <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBzdWJqZWN0ID0gSW5wdXRzLnRleHQoeyBsYWJlbDogXCJzdWJqZWN0XCIsIHBsYWNlaG9sZGVyOiBcIklSSXMsIHNlcGFyYXRlZCBieSB8XCIgfSlcbnZpZXdvZiB0cnV0aCA9IElucHV0cy5jaGVja2JveChbXCJuZWdhdGl2ZVwiXSlcbnZpZXdvZiBwcmVkaWNhdGUgPSBJbnB1dHMudGV4dCh7IGxhYmVsOiBcInByZWRpY2F0ZVwiLCBwbGFjZWhvbGRlcjogXCJJUklcIiB9KVxudmlld29mIG9iamVjdCA9IElucHV0cy50ZXh0KHsgbGFiZWw6IFwib2JqZWN0XCIsIHBsYWNlaG9sZGVyOiBcIklSSXMsIHNlcGFyYXRlZCBieSB8XCIgfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImlkID0ge1xuICBjb25zdCBtZXNzYWdlID0gYCR7c3ViamVjdH0gJHtwcmVkaWNhdGV9ICR7b2JqZWN0fWBcbiAgY29uc3QgaGFzaEJ1ZmZlciA9IGF3YWl0IGNyeXB0by5zdWJ0bGUuZGlnZXN0KCdTSEEtMjU2JywgbmV3IFRleHRFbmNvZGVyKCkuZW5jb2RlKG1lc3NhZ2UpKVxuICBjb25zdCBpZCA9IG5ldyBVaW50OEFycmF5KGhhc2hCdWZmZXIpLnRvQmFzZTY0KCkgLy8gVE9ETzogdXJsXG4gIHJldHVybiBgbWFwcGluZzoke3RydXRoLmxlbmd0aD9cIiFcIjpcIlwifSR7aWR9YFxufVxuaWRcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc3ViamVjdCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0cnV0aCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdwcmVkaWNhdGUnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnb2JqZWN0JykifV19
 </script>
 <script type="module">
@@ -485,8 +583,7 @@ window._ojs.paths.runtimeToRoot = "../..";
 window._ojs.paths.docToRoot = "";
 window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
+</script>  <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -885,10 +982,6 @@ window._ojs.runtime.interpretFromScriptTags();
       }
     }
   });
-  </script>
-</div> <!-- /content -->
-
-
-
-
+  </script>  </div> <!-- /content --> 
+  
 </body></html>
