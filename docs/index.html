@@ -68,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="style.css">
@@ -175,13 +173,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
   <ul class="collapse">
-  <li><a href="#sssom-examples" id="toc-sssom-examples" class="nav-link" data-scroll-target="#sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</a></li>
-  <li><a href="#jskos-example" id="toc-jskos-example" class="nav-link" data-scroll-target="#jskos-example"><span class="header-section-number">4.4</span> JSKOS example</a></li>
-  <li><a href="#rdf-examples" id="toc-rdf-examples" class="nav-link" data-scroll-target="#rdf-examples"><span class="header-section-number">4.5</span> RDF examples</a></li>
-  <li><a href="#implementations" id="toc-implementations" class="nav-link" data-scroll-target="#implementations"><span class="header-section-number">4.6</span> Implementations</a>
+  <li><a href="#sssom" id="toc-sssom" class="nav-link" data-scroll-target="#sssom">SSSOM</a></li>
+  <li><a href="#jskos" id="toc-jskos" class="nav-link" data-scroll-target="#jskos">JSKOS</a></li>
+  <li><a href="#rdf" id="toc-rdf" class="nav-link" data-scroll-target="#rdf">RDF</a></li>
+  <li><a href="#implementations" id="toc-implementations" class="nav-link" data-scroll-target="#implementations">Implementations</a>
   <ul class="collapse">
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">4.6.1</span> Python</a></li>
-  <li><a href="#command-line-tools" id="toc-command-line-tools" class="nav-link" data-scroll-target="#command-line-tools"><span class="header-section-number">4.6.2</span> Command line tools</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#command-line-tools" id="toc-command-line-tools" class="nav-link" data-scroll-target="#command-line-tools">Command line tools</a></li>
   </ul></li>
   <li><a href="#changes" id="toc-changes" class="nav-link" data-scroll-target="#changes">Changes</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
@@ -362,12 +360,12 @@ Identifier of example 2
 <section id="appendices" class="level1 unnumbered">
 <h1 class="unnumbered">Appendices</h1>
 <p>The following information is non-normative.</p>
-<section id="sssom-examples" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sssom-examples"><span class="header-section-number">4.3</span> SSSOM examples</h2>
+<section id="sssom" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sssom">SSSOM</h3>
 <p>TODO</p>
 </section>
-<section id="jskos-example" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="jskos-example"><span class="header-section-number">4.4</span> JSKOS example</h2>
+<section id="jskos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="jskos">JSKOS</h3>
 <p>Mappings can be expressed in JSKOS data format with its <a href="https://gbv.github.io/jskos/#mapping">Mapping Object</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
@@ -399,8 +397,8 @@ Identifier of example 2
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="rdf-examples" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="rdf-examples"><span class="header-section-number">4.5</span> RDF examples</h2>
+<section id="rdf" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="rdf">RDF</h3>
 <p>A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.</p>
 <p>Example: the RDF statement</p>
 <pre class="ttl"><code>&lt;http://example.org/A&gt; &lt;http://www.w3.org/2002/07/owl#sameAs&gt; &lt;http://example.com/B&gt; .</code></pre>
@@ -409,125 +407,11 @@ Identifier of example 2
 <pre class="ttl"><code># Don't do this, it's a contradiction:
 &lt;some:mapping:sameness:id:of:non:negative:mapping&gt; a ontology:NegativeMapping .</code></pre>
 </section>
-<section id="implementations" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="implementations"><span class="header-section-number">4.6</span> Implementations</h2>
-<!--
-The following form can be used to generate mapping sameness identifiers. Sorting of multiple IRIs is not supported and the implementation requires a modern web browser:
-
-
-
-
-
-
-::::::{.cell}
-
-```{.js .cell-code .hidden startFrom="222" source-offset="-0"}
-viewof subject = Inputs.text({ label: "subject", placeholder: "IRIs, separated by |" })
-viewof truth = Inputs.checkbox(["negative"])
-viewof predicate = Inputs.text({ label: "predicate", placeholder: "IRI" })
-viewof object = Inputs.text({ label: "object", placeholder: "IRIs, separated by |" })
-```
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-1-1 nodetype="declaration"}
-:::
-::::
-:::::
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-1-2 nodetype="declaration"}
-:::
-::::
-:::::
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-1-3 nodetype="declaration"}
-:::
-::::
-:::::
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-1-4 nodetype="declaration"}
-:::
-::::
-:::::
-::::::
-
-::::::{.cell}
-
-```{.js .cell-code .hidden startFrom="229" source-offset="-0"}
-msg = {
-  return `${subject} ${predicate} ${object}`
-}
-id = {
-  const message = `${subject} ${predicate} ${object}`
-  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(message))
-  const hex = new Uint8Array(hashBuffer).toHex() //Base64() // TODO: url
-  const id = new Uint8Array(hashBuffer).toBase64().replaceAll("+","-").replaceAll("/","_").replaceAll("=","")
-  return `mapping:${truth.length?"~":""}${id}`
-}
-msg
-```
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-2-1 nodetype="declaration"}
-:::
-::::
-:::::
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-2-2 nodetype="declaration"}
-:::
-::::
-:::::
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-2-3 nodetype="expression"}
-:::
-::::
-:::::
-
-```{.js .cell-code .hidden startFrom="240" source-offset="-446"}
-id
-```
-
-:::::{.cell-output .cell-output-display}
-
-::::{}
-
-:::{#ojs-cell-2-4 nodetype="expression"}
-:::
-::::
-:::::
-::::::
-
-
-
-
--->
-<section id="python" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="python"><span class="header-section-number">4.6.1</span> Python</h3>
+<section id="implementations" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="implementations">Implementations</h2>
+<p>The following scripts expect a JSON object with fields <code>subjects</code>, <code>predicate</code>, <code>objects</code>, and <code>negative</code> from standard input.</p>
+<section id="python" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="python">Python</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib, base64</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, json</span>
@@ -536,20 +420,17 @@ id
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    subjects <span class="op">=</span> <span class="st">"|"</span>.join(<span class="bu">sorted</span>(mapping[<span class="st">"subjects"</span>]))</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    objects <span class="op">=</span> <span class="st">"|"</span>.join(<span class="bu">sorted</span>(mapping[<span class="st">"objects"</span>]))</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    string <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>subjects<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>mapping[<span class="st">'predicate'</span>]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>objects<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(string)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    sha <span class="op">=</span> hashlib.sha256(string.encode(<span class="st">'utf-8'</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(sha.hexdigest())</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">=</span> base64.urlsafe_b64encode(sha.digest()).decode(<span class="st">'ascii'</span>).rstrip(<span class="st">'='</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"mapping:~</span><span class="sc">{</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> mapping[<span class="st">"negative"</span>] <span class="cf">else</span> <span class="ss">f"mapping:</span><span class="sc">{</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    mapping <span class="op">=</span> json.load(sys.stdin)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(mapping_sameness_identifier(mapping))</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    sha <span class="op">=</span> hashlib.sha256(string.encode(<span class="st">'utf-8'</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">=</span> base64.urlsafe_b64encode(sha.digest()).decode(<span class="st">'ascii'</span>).rstrip(<span class="st">'='</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"mapping:~</span><span class="sc">{</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> mapping[<span class="st">"negative"</span>] <span class="cf">else</span> <span class="ss">f"mapping:</span><span class="sc">{</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    mapping <span class="op">=</span> json.load(sys.stdin)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(mapping_sameness_identifier(mapping))</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="command-line-tools" class="level3" data-number="4.6.2">
-<h3 data-number="4.6.2" class="anchored" data-anchor-id="command-line-tools"><span class="header-section-number">4.6.2</span> Command line tools</h3>
+<section id="command-line-tools" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="command-line-tools">Command line tools</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LANG</span><span class="op">=</span>C.UTF-8</span>
@@ -584,17 +465,6 @@ id
 
 </main>
 <!-- /main column -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBzdWJqZWN0ID0gSW5wdXRzLnRleHQoeyBsYWJlbDogXCJzdWJqZWN0XCIsIHBsYWNlaG9sZGVyOiBcIklSSXMsIHNlcGFyYXRlZCBieSB8XCIgfSlcbnZpZXdvZiB0cnV0aCA9IElucHV0cy5jaGVja2JveChbXCJuZWdhdGl2ZVwiXSlcbnZpZXdvZiBwcmVkaWNhdGUgPSBJbnB1dHMudGV4dCh7IGxhYmVsOiBcInByZWRpY2F0ZVwiLCBwbGFjZWhvbGRlcjogXCJJUklcIiB9KVxudmlld29mIG9iamVjdCA9IElucHV0cy50ZXh0KHsgbGFiZWw6IFwib2JqZWN0XCIsIHBsYWNlaG9sZGVyOiBcIklSSXMsIHNlcGFyYXRlZCBieSB8XCIgfSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1zZyA9IHtcbiAgcmV0dXJuIGAke3N1YmplY3R9ICR7cHJlZGljYXRlfSAke29iamVjdH1gXG59XG5pZCA9IHtcbiAgY29uc3QgbWVzc2FnZSA9IGAke3N1YmplY3R9ICR7cHJlZGljYXRlfSAke29iamVjdH1gXG4gIGNvbnN0IGhhc2hCdWZmZXIgPSBhd2FpdCBjcnlwdG8uc3VidGxlLmRpZ2VzdCgnU0hBLTI1NicsIG5ldyBUZXh0RW5jb2RlcigpLmVuY29kZShtZXNzYWdlKSlcbiAgY29uc3QgaGV4ID0gbmV3IFVpbnQ4QXJyYXkoaGFzaEJ1ZmZlcikudG9IZXgoKSAvL0Jhc2U2NCgpIC8vIFRPRE86IHVybFxuICBjb25zdCBpZCA9IG5ldyBVaW50OEFycmF5KGhhc2hCdWZmZXIpLnRvQmFzZTY0KCkucmVwbGFjZUFsbChcIitcIixcIi1cIikucmVwbGFjZUFsbChcIi9cIixcIl9cIikucmVwbGFjZUFsbChcIj1cIixcIlwiKVxuICByZXR1cm4gYG1hcHBpbmc6JHt0cnV0aC5sZW5ndGg/XCJ+XCI6XCJcIn0ke2lkfWBcbn1cbm1zZ1xuaWRcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc3ViamVjdCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0cnV0aCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdwcmVkaWNhdGUnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnb2JqZWN0JykifV19
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

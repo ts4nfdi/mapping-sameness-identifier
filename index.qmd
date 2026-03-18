@@ -149,11 +149,11 @@ The mapping sameness identifier is `mapping:~Qk56huop1aCq8dPX2pqGS0gSGsRlxnFjrvV
 
 The following information is non-normative.
 
-## SSSOM examples
+### SSSOM {-}
 
 TODO
 
-## JSKOS example
+### JSKOS {-}
 
 Mappings can be expressed in JSKOS data format with its [Mapping Object](https://gbv.github.io/jskos/#mapping):
 
@@ -194,7 +194,7 @@ JSKOS supports mapping sources and mapping objects with multiple source but nega
 }
 ~~~
 
-## RDF examples
+### RDF {-}
 
 A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.
 
@@ -213,41 +213,17 @@ Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require 
 <some:mapping:sameness:id:of:non:negative:mapping> a ontology:NegativeMapping .
 ~~~
 
-## Implementations
+## Implementations {-}
 
-<!--
-The following form can be used to generate mapping sameness identifiers. Sorting of multiple IRIs is not supported and the implementation requires a modern web browser:
+The following scripts expect a JSON object with fields `subjects`, `predicate`, `objects`, and `negative` from standard input.
 
-```{ojs}
-viewof subject = Inputs.text({ label: "subject", placeholder: "IRIs, separated by |" })
-viewof truth = Inputs.checkbox(["negative"])
-viewof predicate = Inputs.text({ label: "predicate", placeholder: "IRI" })
-viewof object = Inputs.text({ label: "object", placeholder: "IRIs, separated by |" })
-```
-
-```{ojs}
-msg = {
-  return `${subject} ${predicate} ${object}`
-}
-id = {
-  const message = `${subject} ${predicate} ${object}`
-  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(message))
-  const hex = new Uint8Array(hashBuffer).toHex() //Base64() // TODO: url
-  const id = new Uint8Array(hashBuffer).toBase64().replaceAll("+","-").replaceAll("/","_").replaceAll("=","")
-  return `mapping:${truth.length?"~":""}${id}`
-}
-msg
-id
-```
--->
-
-### Python
+### Python {-}
 
 ~~~python
 {{< include implementation/python.py >}}
 ~~~
 
-### Command line tools
+### Command line tools {-}
 
 ~~~sh
 {{< include implementation/cli.sh >}}
