@@ -168,7 +168,7 @@ column:
   semapv: https://w3id.org/semapv/vocab/
 #mapping_set_id: https://example.org/example.sssom.tsv
 subject_id  predicate_id    predicate_modifier    object_id   mapping_justification
-ex:feline   owl:sameAs  NOT  ex:dog  semapv:UnspecifiedMatching
+ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching
 ~~~
 
 ### JSKOS {-}
