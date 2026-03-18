@@ -89,7 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Mapping Sameness Identifier</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="repo"><i class="bi"></i> Code</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Mapping Sameness Identifier</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/ts4nfdi/mapping-sameness-identifier repo"><i class="bi"></i> Code</button></div></div>
             <p class="subtitle lead">Version 0.0.0</p>
           </div>
 
@@ -173,9 +173,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
   <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">4.3</span> Examples</a>
+  <ul class="collapse">
   <li><a href="#sssom" id="toc-sssom" class="nav-link" data-scroll-target="#sssom">SSSOM</a></li>
   <li><a href="#jskos" id="toc-jskos" class="nav-link" data-scroll-target="#jskos">JSKOS</a></li>
   <li><a href="#rdf" id="toc-rdf" class="nav-link" data-scroll-target="#rdf">RDF</a></li>
+  </ul></li>
   <li><a href="#implementations" id="toc-implementations" class="nav-link" data-scroll-target="#implementations">Implementations</a>
   <ul class="collapse">
   <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
@@ -233,7 +236,7 @@ Informative Notes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Applications may restrict or extends mappings, for instance by:</p>
+<p>Applications may <strong>restrict or extend mappings</strong>, for instance by:</p>
 <ul>
 <li>limitation to 1-to-1-mappings</li>
 <li>limitation of the set of allowed predicates</li>
@@ -241,7 +244,7 @@ Informative Notes
 <li>allowing subjects and/or objects to be empty sets</li>
 </ul>
 <p>Handling these models of mappings is out of the scope of this specification. The same applies to resolving different IRIs to one form if they refer to the same concept.</p>
-<p>The definiton of a mapping roughly corresponds to a an edge in a directed hypergraph. The original use case of this specification was application to mappings between terminologies but there may be other uses in applications of directed hypergraphs such as chemical reaction networks and transport routing.</p>
+<p>The definiton of a mapping roughly corresponds to a an edge in a <strong>directed hypergraph</strong>. The original use case of this specification was application to mappings between terminologies but there may be other uses in applications of directed hypergraphs such as chemical reaction networks and transport routing.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Example 1: An affirmative 1-to-1 mapping">
@@ -350,14 +353,16 @@ Identifier of example 2
 <h2 data-number="4.2" class="anchored" data-anchor-id="informative-references"><span class="header-section-number">4.2</span> Informative references</h2>
 <ul>
 <li><p>Bray, T.: <em>The JavaScript Object Notation (JSON) Data Interchange Format</em>. RFC 8259, December 2017. <a href="https://tools.ietf.org/html/rfc8259" class="uri">https://tools.ietf.org/html/rfc8259</a></p></li>
-<li><p>Matentzoglu, N., <em>et al.</em>: A Simple Standard for Sharing Ontological Mappings (SSSOM). Database, Volume 2022, 2022, baac035, <a href="https://doi.org/10.1093/database/baac035" class="uri">https://doi.org/10.1093/database/baac035</a></p></li>
-<li><p>TODO: JSKOS</p></li>
+<li><p>Matentzoglu, N., et al.: <em>A Simple Standard for Sharing Ontological Mappings (SSSOM)</em>. Database, Volume 2022, 2022, baac035, <a href="https://doi.org/10.1093/database/baac035" class="uri">https://doi.org/10.1093/database/baac035</a></p></li>
+<li><p>Voß, J.: <em>JSKOS data format for Knowledge Organization Systems</em>. Version 0.7.1, January 2026. <a href="https://gbv.github.io/jskos/" class="uri">https://gbv.github.io/jskos/</a></p></li>
 </ul>
 </section>
 </section>
 <section id="appendices" class="level1 unnumbered">
 <h1 class="unnumbered">Appendices</h1>
 <p>The following information is non-normative.</p>
+<section id="examples" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.3</span> Examples</h2>
 <section id="sssom" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="sssom">SSSOM</h3>
 <p>Mappings can be expressed in the <a href="https://mapping-commons.github.io/sssom/">Simple Standard for Sharing Ontological Mappings (SSSOM)</a> in a tabular format:</p>
@@ -379,7 +384,7 @@ ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching</code></pre>
 </section>
 <section id="jskos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="jskos">JSKOS</h3>
-<p>Mappings can be expressed in JSKOS data format with its <a href="https://gbv.github.io/jskos/#mapping">Mapping Object</a>:</p>
+<p>Mappings can be expressed in <a href="https://gbv.github.io/jskos/">JSKOS data format</a> with its <a href="https://gbv.github.io/jskos/#mapping">Mapping Object</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2004/02/skos/core#mappingRelation"</span><span class="ot">,</span></span>
@@ -413,12 +418,12 @@ ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching</code></pre>
 <section id="rdf" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rdf">RDF</h3>
 <p>A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.</p>
-<p>Example: the RDF statement</p>
-<pre class="ttl"><code>&lt;http://example.org/A&gt; &lt;http://www.w3.org/2002/07/owl#sameAs&gt; &lt;http://example.com/B&gt; .</code></pre>
-<p>Has mapping sameness identifier …(TODO)…</p>
-<p>Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to <em>express</em> mappings beyond non-negative 1-to-1 mappings is an anti-pattern:</p>
-<pre class="ttl"><code># Don't do this, it's a contradiction:
-&lt;some:mapping:sameness:id:of:non:negative:mapping&gt; a ontology:NegativeMapping .</code></pre>
+<p>For example mapping example 1 can be expressed in RDF Turtle syntax:</p>
+<pre class="ttl"><code>&lt;http://example.org/feline&gt; &lt;http://www.w3.org/2002/07/owl#sameAs&gt; &lt;http://example.com/cat&gt; .</code></pre>
+<p>Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to express mappings beyond non-negative 1-to-1 mappings is an anti-pattern:</p>
+<pre class="ttl"><code># Don't do this, it's a contradiction because the mapping is not negative:
+&lt;mapping:95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e&gt; a ontology:NegativeMapping .</code></pre>
+</section>
 </section>
 <section id="implementations" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="implementations">Implementations</h2>

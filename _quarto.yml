@@ -6,8 +6,6 @@ project:
 manuscript:
   article: index.qmd
 
-repo-url: "https://github.com/ts4nfdi/mapping-sameness-identifier"
-  
 format:
   html:
     number-sections: true
@@ -15,7 +13,8 @@ format:
     css: style.css
     highlight-style: kate
     code-tools:
-      source: repo
+      source: "https://github.com/ts4nfdi/mapping-sameness-identifier
+repo"
     notebook-links: false
   # requires install  texlive-fonts-extra
   pdf:

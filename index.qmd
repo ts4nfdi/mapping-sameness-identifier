@@ -48,7 +48,7 @@ IRIs must be absolute as specificied in [RFC 3987]. IRIs SHOULD be based on NFC-
 A mapping is also called **1-to-1 mapping**, if both subjects and objects contain exactely one IRI each.
 
 ::: {.callout-tip title="Informative Notes"}
-Applications may restrict or extends mappings, for instance by:
+Applications may **restrict or extend mappings**, for instance by:
 
 - limitation to 1-to-1-mappings
 - limitation of the set of allowed predicates
@@ -57,7 +57,7 @@ Applications may restrict or extends mappings, for instance by:
 
 Handling these models of mappings is out of the scope of this specification. The same applies to resolving different IRIs to one form if they refer to the same concept.
 
-The definiton of a mapping roughly corresponds to a an edge in a directed hypergraph. The original use case of this specification was application to mappings between terminologies but there may be other uses in applications of directed hypergraphs such as chemical reaction networks and transport routing.
+The definiton of a mapping roughly corresponds to a an edge in a **directed hypergraph**. The original use case of this specification was application to mappings between terminologies but there may be other uses in applications of directed hypergraphs such as chemical reaction networks and transport routing.
 :::
 
 ::: {.callout-note title="Example 1: An affirmative 1-to-1 mapping"}
@@ -136,14 +136,17 @@ The mapping sameness identifier is `mapping:~424e7a86ea29d5a0aaf1d3d7da9a864b481
 - Bray, T.: _The JavaScript Object Notation (JSON) Data Interchange Format_.
   RFC 8259, December 2017. <https://tools.ietf.org/html/rfc8259>
 
-- Matentzoglu, N., *et al.*: A Simple Standard for Sharing Ontological Mappings (SSSOM).
+- Matentzoglu, N., et al.: _A Simple Standard for Sharing Ontological Mappings (SSSOM)_.
   Database, Volume 2022, 2022, baac035, <https://doi.org/10.1093/database/baac035>
 
-- TODO: JSKOS
+- Voß, J.: _JSKOS data format for Knowledge Organization Systems_.
+  Version 0.7.1, January 2026. <https://gbv.github.io/jskos/>
 
-# Appendices {.unnumbered}
+# Appendices {-}
 
 The following information is non-normative.
+
+## Examples
 
 ### SSSOM {-}
 
@@ -175,7 +178,7 @@ ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching
 
 ### JSKOS {-}
 
-Mappings can be expressed in JSKOS data format with its [Mapping Object](https://gbv.github.io/jskos/#mapping):
+Mappings can be expressed in [JSKOS data format](https://gbv.github.io/jskos/) with its [Mapping Object](https://gbv.github.io/jskos/#mapping):
 
 ~~~json
 {
@@ -218,19 +221,17 @@ JSKOS supports mapping sources and mapping objects with multiple source but nega
 
 A non-negative 1-to-1 mapping can be expressed in form of an RDF triple with mapping subjects being the RDF triple subject, mapping objects being the RDF triple object, and mapping predicate being the RDF triple predicate. An RDF triples can only represent a mappings if all of its elements are absolute IRIs.
 
-Example: the RDF statement
+For example mapping example 1 can be expressed in RDF Turtle syntax:
 
 ~~~ttl
-<http://example.org/A> <http://www.w3.org/2002/07/owl#sameAs> <http://example.com/B> .
+<http://example.org/feline> <http://www.w3.org/2002/07/owl#sameAs> <http://example.com/cat> .
 ~~~
 
-Has mapping sameness identifier ...(TODO)...
-
-Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to *express* mappings beyond non-negative 1-to-1 mappings is an anti-pattern:
+Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require more complex features and conventions such as reification or triple terms (also known as RDF-star, introduced in RDF 1.2). The choice of these features to express mappings is out of the scope of this document. The combination of mapping sameness identifiers and RDF statements to express mappings beyond non-negative 1-to-1 mappings is an anti-pattern:
 
 ~~~ttl
-# Don't do this, it's a contradiction:
-<some:mapping:sameness:id:of:non:negative:mapping> a ontology:NegativeMapping .
+# Don't do this, it's a contradiction because the mapping is not negative:
+<mapping:95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e> a ontology:NegativeMapping .
 ~~~
 
 ## Implementations {-}
