@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div>
                 <div class="quarto-title-meta-contents">
                     <p class="affiliation">
-                        RWTH Aachen
+                        RWTH Aachen University
                       </p>
                   </div>
                     </div>
@@ -241,6 +241,7 @@ Informative Notes
 <li>allowing subjects and/or objects to be empty sets</li>
 </ul>
 <p>Handling these models of mappings is out of the scope of this specification. The same applies to resolving different IRIs to one form if they refer to the same concept.</p>
+<p>The definiton of a mapping roughly corresponds to a an edge in a directed hypergraph. The original use case of this specification was application to mappings between terminologies but there may be other uses in applications of directed hypergraphs such as chemical reaction networks and transport routing.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Example 1: An affirmative 1-to-1 mapping">
@@ -349,7 +350,7 @@ Identifier of example 2
 <h2 data-number="4.2" class="anchored" data-anchor-id="informative-references"><span class="header-section-number">4.2</span> Informative references</h2>
 <ul>
 <li><p>Bray, T.: <em>The JavaScript Object Notation (JSON) Data Interchange Format</em>. RFC 8259, December 2017. <a href="https://tools.ietf.org/html/rfc8259" class="uri">https://tools.ietf.org/html/rfc8259</a></p></li>
-<li><p>TODO: SSSOM</p></li>
+<li><p>Matentzoglu, N., <em>et al.</em>: A Simple Standard for Sharing Ontological Mappings (SSSOM). Database, Volume 2022, 2022, baac035, <a href="https://doi.org/10.1093/database/baac035" class="uri">https://doi.org/10.1093/database/baac035</a></p></li>
 <li><p>TODO: JSKOS</p></li>
 </ul>
 </section>
@@ -359,40 +360,55 @@ Identifier of example 2
 <p>The following information is non-normative.</p>
 <section id="sssom" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="sssom">SSSOM</h3>
-<p>TODO</p>
+<p>Mappings can be expressed in the <a href="https://mapping-commons.github.io/sssom/">Simple Standard for Sharing Ontological Mappings (SSSOM)</a> in a tabular format:</p>
+<pre class="tsv"><code>#curie_map:
+#  ex: https://example.org
+#  owl: http://www.w3.org/2002/07/owl#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://example.org/example.sssom.tsv
+subject_id  predicate_id    object_id   mapping_justification
+ex:feline   owl:sameAs  ex:cat  semapv:UnspecifiedMatching</code></pre>
+<p>Negative mappings can be specified in SSSOM with the <a href="https://w3id.org/sssom/predicate_modifier"><code>predicate_modifier</code></a> column:</p>
+<pre class="tsv"><code>#curie_map:
+#  ex: https://example.org
+#  owl: http://www.w3.org/2002/07/owl#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://example.org/example.sssom.tsv
+subject_id  predicate_id    predicate_modifier    object_id   mapping_justification
+ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching</code></pre>
 </section>
 <section id="jskos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="jskos">JSKOS</h3>
 <p>Mappings can be expressed in JSKOS data format with its <a href="https://gbv.github.io/jskos/#mapping">Mapping Object</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2004/02/skos/core#mappingRelation"</span><span class="ot">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2002/07/owl#sameAs"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/feline"</span> <span class="fu">}</span> <span class="ot">]</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.com/cat"</span> <span class="fu">}</span> <span class="ot">]</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2004/02/skos/core#mappingRelation"</span><span class="ot">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2002/07/owl#sameAs"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/feline"</span> <span class="fu">}</span> <span class="ot">]</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.com/cat"</span> <span class="fu">}</span> <span class="ot">]</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that in this example <a href="http://www.w3.org/2004/02/skos/core#mappingRelation" class="uri">http://www.w3.org/2004/02/skos/core#mappingRelation</a> does not encode the mapping predicate but the fact that this JSON object is a JSKOS mapping!</p>
 <p>JSKOS supports mapping sources and mapping objects with multiple source but negative mappings are not supported yet (see <a href="https://github.com/gbv/jskos/issues/173">this issue</a>). A negative mapping will likely be expressed like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">false</span><span class="ot">,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2004/02/skos/core#closeMatch"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/red"</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/blue"</span> <span class="fu">}</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/green"</span> <span class="fu">}</span> <span class="ot">]</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">false</span><span class="ot">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"http://www.w3.org/2004/02/skos/core#closeMatch"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/red"</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/blue"</span> <span class="fu">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"memberSet"</span><span class="fu">:</span> <span class="ot">[</span> <span class="fu">{</span> <span class="dt">"uri"</span><span class="fu">:</span> <span class="st">"http://example.org/green"</span> <span class="fu">}</span> <span class="ot">]</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rdf" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rdf">RDF</h3>
@@ -409,38 +425,38 @@ Identifier of example 2
 <p>The following scripts expect a JSON object with fields <code>subjects</code>, <code>predicate</code>, <code>objects</code>, and <code>negative</code> from standard input.</p>
 <section id="python" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="python">Python</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, json</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mapping_sameness_identifier(mapping):</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    subjects <span class="op">=</span> <span class="st">"|"</span>.join(<span class="bu">sorted</span>(mapping[<span class="st">"subjects"</span>]))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    objects <span class="op">=</span> <span class="st">"|"</span>.join(<span class="bu">sorted</span>(mapping[<span class="st">"objects"</span>]))</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    string <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>subjects<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>mapping[<span class="st">'predicate'</span>]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>objects<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    digest <span class="op">=</span> hashlib.sha256(string.encode(<span class="st">'utf-8'</span>)).hexdigest()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"mapping:~</span><span class="sc">{</span>digest<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> mapping[<span class="st">"negative"</span>] <span class="cf">else</span> <span class="ss">f"mapping:</span><span class="sc">{</span>digest<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    mapping <span class="op">=</span> json.load(sys.stdin)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(mapping_sameness_identifier(mapping))</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, json</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mapping_sameness_identifier(mapping):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    subjects <span class="op">=</span> <span class="st">"|"</span>.join(<span class="bu">sorted</span>(mapping[<span class="st">"subjects"</span>]))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    objects <span class="op">=</span> <span class="st">"|"</span>.join(<span class="bu">sorted</span>(mapping[<span class="st">"objects"</span>]))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    string <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>subjects<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>mapping[<span class="st">'predicate'</span>]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>objects<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    digest <span class="op">=</span> hashlib.sha256(string.encode(<span class="st">'utf-8'</span>)).hexdigest()</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"mapping:~</span><span class="sc">{</span>digest<span class="sc">}</span><span class="ss">"</span> <span class="cf">if</span> mapping[<span class="st">"negative"</span>] <span class="cf">else</span> <span class="ss">f"mapping:</span><span class="sc">{</span>digest<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    mapping <span class="op">=</span> json.load(sys.stdin)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(mapping_sameness_identifier(mapping))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="command-line-tools" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="command-line-tools">Command line tools</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LANG</span><span class="op">=</span>C.UTF-8</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">read</span> <span class="at">-r</span> <span class="va">s</span> <span class="va">p</span> <span class="va">o</span> <span class="va">n</span> <span class="op">&lt;&lt;&lt;</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-r</span> <span class="st">'[</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">    (.subjects|sort|join("|")),</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">    .predicate,</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">    (.objects|sort|join("|")),</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">    (if .negative then "~" else "" end)</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">  ]|join(" ")'</span><span class="va">)</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="va">digest</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$s</span><span class="st"> </span><span class="va">$p</span><span class="st"> </span><span class="va">$o</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sha256sum</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d</span><span class="st">' '</span><span class="va">)</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"mapping:</span><span class="va">$n$digest</span><span class="st">"</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LANG</span><span class="op">=</span>C.UTF-8</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">read</span> <span class="at">-r</span> <span class="va">s</span> <span class="va">p</span> <span class="va">o</span> <span class="va">n</span> <span class="op">&lt;&lt;&lt;</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-r</span> <span class="st">'[</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">    (.subjects|sort|join("|")),</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">    .predicate,</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">    (.objects|sort|join("|")),</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">    (if .negative then "~" else "" end)</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">  ]|join(" ")'</span><span class="va">)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="va">digest</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$s</span><span class="st"> </span><span class="va">$p</span><span class="st"> </span><span class="va">$o</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sha256sum</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d</span><span class="st">' '</span><span class="va">)</span> </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"mapping:</span><span class="va">$n$digest</span><span class="st">"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="changes" class="level2 unnumbered">

@@ -56,6 +56,8 @@ Applications may restrict or extends mappings, for instance by:
 - allowing subjects and/or objects to be empty sets
 
 Handling these models of mappings is out of the scope of this specification. The same applies to resolving different IRIs to one form if they refer to the same concept.
+
+The definiton of a mapping roughly corresponds to a an edge in a directed hypergraph. The original use case of this specification was application to mappings between terminologies but there may be other uses in applications of directed hypergraphs such as chemical reaction networks and transport routing.
 :::
 
 ::: {.callout-note title="Example 1: An affirmative 1-to-1 mapping"}
