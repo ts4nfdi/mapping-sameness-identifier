@@ -5,12 +5,18 @@ project:
     - "!*.md"
 manuscript:
   article: index.qmd
+
+repo-url: "https://github.com/ts4nfdi/mapping-sameness-identifier"
+  
 format:
   html:
     number-sections: true
     code-line-numbers: false
     css: style.css
     highlight-style: kate
+    code-tools:
+      source: repo
+    notebook-links: false
   # requires install  texlive-fonts-extra
   pdf:
     number-sections: true

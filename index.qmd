@@ -25,7 +25,7 @@ Mappings (also known as *terminology mappings*, *correspondences*, or *semantic 
 
 This specification defines a derived identifier for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.
 
-This specification consists of a definition of [mapping content](#mappings) and the definition of a method to [derive an identifier](#identifier) from the content. The method does not depend on any specific data format or programming language. The text of the specification is managed in a git repository. Please use <https://github.com/ts4nfdi/mapping-sameness-identifier/issues> for correction.
+This specification consists of a definition of [mapping content](#mappings) and the definition of a method to [derive an identifier](#identifier) from the content. The method does not depend on any specific data format or programming language.
 
 # Definitions
 
@@ -79,7 +79,7 @@ A **mapping sameness identifier** is created from a Unicode string consisting of
 2. mapping predicate
 3. mapping objects sorted by Unicode Code Point and separated by vertical bar (U+007C)
 
-The resulting string is encoded in UTF-8, then hashed with SHA-256 ([RFC 6234]), and the digest is serialized in base64url encoding without padding `=`. An exclamation mark is prepended if the mapping is negative.
+The resulting string is encoded in UTF-8, then hashed with SHA-256 ([RFC 6234]), and the digest is serialized in base64url encoding without padding `=`. A tilde (`~`, U+007E) is prepended if the mapping is negative.
 
 To use a mapping sameness identifier as IRI, the generated string is appended to URI namespace string `mapping:` (TODO: define an official namespace)
 
@@ -90,13 +90,17 @@ Some programming languages, such as Python, sort strings by Unicode Code Points.
 ::: {.callout-note title="Identifier of example 1"}
 The string is `http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat`.
 
-The identifier is `mapping:laCICCqysqaGOK67zD_j4PIp2nWotb27nz-M1eHkKG4`.
+The SHA-256 digest (hex) is `95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e`
+
+The mapping sameness identifier is `mapping:laCICCqysqaGOK67zD_j4PIp2nWotb27nz-M1eHkKG4`.
 :::
 
 ::: {.callout-note title="Identifier of example 2"}
 The string is `http://example.org/blue|http://example.org/red http://www.w3.org/2004/02/skos/core#closeMatch http://example.com/green`.
 
-The identifier is `mapping:!Qk56huop1aCq8dPX2pqGS0gSGsRlxnFjrvVvb4e7G6g`
+The SHA-256 digest (hex) is `424e7a86ea29d5a0aaf1d3d7da9a864b48121ac465c67163aef56f6f87bb1ba8`
+
+The mapping sameness identifier is `mapping:~Qk56huop1aCq8dPX2pqGS0gSGsRlxnFjrvVvb4e7G6g`
 :::
 
 # References
@@ -211,7 +215,8 @@ Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require 
 
 ## Implementations
 
-The following draft does not comply with the specification yet:
+<!--
+The following form can be used to generate mapping sameness identifiers. Sorting of multiple IRIs is not supported and the implementation requires a modern web browser:
 
 ```{ojs}
 viewof subject = Inputs.text({ label: "subject", placeholder: "IRIs, separated by |" })
@@ -221,20 +226,31 @@ viewof object = Inputs.text({ label: "object", placeholder: "IRIs, separated by 
 ```
 
 ```{ojs}
+msg = {
+  return `${subject} ${predicate} ${object}`
+}
 id = {
   const message = `${subject} ${predicate} ${object}`
   const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(message))
-  const id = new Uint8Array(hashBuffer).toBase64() // TODO: url
-  return `mapping:${truth.length?"!":""}${id}`
+  const hex = new Uint8Array(hashBuffer).toHex() //Base64() // TODO: url
+  const id = new Uint8Array(hashBuffer).toBase64().replaceAll("+","-").replaceAll("/","_").replaceAll("=","")
+  return `mapping:${truth.length?"~":""}${id}`
 }
+msg
 id
 ```
+-->
 
-Command line, without Unicode:
+### Python
+
+~~~python
+{{< include implementation/python.py >}}
+~~~
+
+### Command line tools
 
 ~~~sh
-echo -n 'http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat' | sha256sum | cut -f1 -d\  | xxd -r -p | basenc --base64url
-laCICCqysqaGOK67zD_j4PIp2nWotb27nz-M1eHkKG4=
+{{< include implementation/cli.sh >}}
 ~~~
 
 ## Changes {.unnumbered}

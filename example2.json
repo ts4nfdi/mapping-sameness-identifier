@@ -1,0 +1,6 @@
+{
+  "subjects": ["http://example.org/red", "http://example.org/blue"],
+  "objects": ["http://example.com/green"],
+  "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+  "negative": true
+}
