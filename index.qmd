@@ -11,7 +11,8 @@ authors:
 - name: Charles Tapley Hoyt
   orcid: 0000-0003-4423-4370
   affiliations:
-   - name: RWTH Aachen
+   - name: RWTH Aachen University
+     ror: 04xfq0f34
 abstract: |
  This document specifies a content-based identifier for mappings.
 ---
@@ -133,7 +134,8 @@ The mapping sameness identifier is `mapping:~424e7a86ea29d5a0aaf1d3d7da9a864b481
 - Bray, T.: _The JavaScript Object Notation (JSON) Data Interchange Format_.
   RFC 8259, December 2017. <https://tools.ietf.org/html/rfc8259>
 
-- TODO: SSSOM
+- Matentzoglu, N., *et al.*: A Simple Standard for Sharing Ontological Mappings (SSSOM).
+  Database, Volume 2022, 2022, baac035, <https://doi.org/10.1093/database/baac035>
 
 - TODO: JSKOS
 
@@ -143,7 +145,31 @@ The following information is non-normative.
 
 ### SSSOM {-}
 
-TODO
+Mappings can be expressed in the [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
+in a tabular format:
+
+~~~tsv
+#curie_map:
+#  ex: https://example.org
+#  owl: http://www.w3.org/2002/07/owl#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://example.org/example.sssom.tsv
+subject_id  predicate_id    object_id   mapping_justification
+ex:feline   owl:sameAs  ex:cat  semapv:UnspecifiedMatching
+~~~
+
+Negative mappings can be specified in SSSOM with the [`predicate_modifier`](https://w3id.org/sssom/predicate_modifier)
+column:
+
+~~~tsv
+#curie_map:
+#  ex: https://example.org
+#  owl: http://www.w3.org/2002/07/owl#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://example.org/example.sssom.tsv
+subject_id  predicate_id    predicate_modifier    object_id   mapping_justification
+ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching
+~~~
 
 ### JSKOS {-}
 
