@@ -91,6 +91,7 @@ Some programming languages, such as Python, sort strings by Unicode Code Points.
 The string is `http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat`.
 
 The mapping sameness identifier is `mapping:95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e`.
+:::
 
 ::: {.callout-note title="Identifier of example 2"}
 The string is `http://example.org/blue|http://example.org/red http://www.w3.org/2004/02/skos/core#closeMatch http://example.com/green`.

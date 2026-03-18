@@ -9,5 +9,4 @@ read -r s p o n <<<$(jq -r '[
   ]|join(" ")')
 
 digest=$(echo -n "$s $p $o" | sha256sum | cut -f1 -d' ') 
-
 echo "mapping:$n$digest"

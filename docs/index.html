@@ -166,6 +166,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping"><span class="header-section-number">2.2</span> Mapping</a></li>
   </ul></li>
   <li><a href="#identifier" id="toc-identifier" class="nav-link" data-scroll-target="#identifier"><span class="header-section-number">3</span> Identifier</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a>
+  <ul class="collapse">
+  <li><a href="#normative-references" id="toc-normative-references" class="nav-link" data-scroll-target="#normative-references"><span class="header-section-number">4.1</span> Normative References</a></li>
+  <li><a href="#informative-references" id="toc-informative-references" class="nav-link" data-scroll-target="#informative-references"><span class="header-section-number">4.2</span> Informative references</a></li>
+  </ul></li>
+  <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
+  <ul class="collapse">
+  <li><a href="#sssom" id="toc-sssom" class="nav-link" data-scroll-target="#sssom">SSSOM</a></li>
+  <li><a href="#jskos" id="toc-jskos" class="nav-link" data-scroll-target="#jskos">JSKOS</a></li>
+  <li><a href="#rdf" id="toc-rdf" class="nav-link" data-scroll-target="#rdf">RDF</a></li>
+  <li><a href="#implementations" id="toc-implementations" class="nav-link" data-scroll-target="#implementations">Implementations</a>
+  <ul class="collapse">
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#command-line-tools" id="toc-command-line-tools" class="nav-link" data-scroll-target="#command-line-tools">Command line tools</a></li>
+  </ul></li>
+  <li><a href="#changes" id="toc-changes" class="nav-link" data-scroll-target="#changes">Changes</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -298,6 +316,8 @@ Identifier of example 1
 <div class="callout-body-container callout-body">
 <p>The string is <code>http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat</code>.</p>
 <p>The mapping sameness identifier is <code>mapping:95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e</code>.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled" title="Identifier of example 2">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -312,6 +332,7 @@ Identifier of example 2
 <p>The mapping sameness identifier is <code>mapping:~424e7a86ea29d5a0aaf1d3d7da9a864b48121ac465c67163aef56f6f87bb1ba8</code> .</p>
 </div>
 </div>
+</section>
 <section id="references" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> References</h1>
 <section id="normative-references" class="level2" data-number="4.1">
@@ -418,9 +439,8 @@ Identifier of example 2
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="st">  ]|join(" ")'</span><span class="va">)</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="va">digest</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$s</span><span class="st"> </span><span class="va">$p</span><span class="st"> </span><span class="va">$o</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">sha256sum</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d</span><span class="st">' '</span><span class="va">)</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"mapping:</span><span class="va">$n$digest</span><span class="st">"</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"mapping:</span><span class="va">$n$digest</span><span class="st">"</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="changes" class="level2 unnumbered">
@@ -435,9 +455,6 @@ Identifier of example 2
 <h2 class="unnumbered anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
 <p>…</p>
 </section>
-</section>
-</div>
-</div>
 </section>
 
 </main>
