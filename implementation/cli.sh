@@ -9,6 +9,5 @@ read -r s p o n <<<$(jq -r '[
   ]|join(" ")')
 
 digest=$(echo -n "$s $p $o" | sha256sum | cut -f1 -d' ') 
-base64=$(echo $digest | xxd -r -p | basenc --base64url | tr -d =)
 
-echo "mapping:$n$base64"
+echo "mapping:$n$digest"

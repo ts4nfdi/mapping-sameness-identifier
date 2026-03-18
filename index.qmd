@@ -79,9 +79,9 @@ A **mapping sameness identifier** is created from a Unicode string consisting of
 2. mapping predicate
 3. mapping objects sorted by Unicode Code Point and separated by vertical bar (U+007C)
 
-The resulting string is encoded in UTF-8, then hashed with SHA-256 ([RFC 6234]), and the digest is serialized in base64url encoding without padding `=`. A tilde (`~`, U+007E) is prepended if the mapping is negative.
+The resulting string is encoded in UTF-8, then hashed with SHA-256 ([RFC 6234]), and the digest is serialized in hexadecimal form with lowercase letters. A tilde (`~`, U+007E) is prepended if the mapping is negative.
 
-To use a mapping sameness identifier as IRI, the generated string is appended to URI namespace string `mapping:` (TODO: define an official namespace)
+To use a mapping sameness identifier as IRI, the generated string is appended to URI namespace string `mapping:` (TODO: define an official namespace).
 
 ::: {.callout-warning}
 Some programming languages, such as Python, sort strings by Unicode Code Points. JavaScript sorts by UTF-16 value instead. If IRIs don't include characters in the range U+010000 to U+10FFFF there is no difference. 
@@ -90,17 +90,12 @@ Some programming languages, such as Python, sort strings by Unicode Code Points.
 ::: {.callout-note title="Identifier of example 1"}
 The string is `http://example.org/feline http://www.w3.org/2002/07/owl#sameAs http://example.com/cat`.
 
-The SHA-256 digest (hex) is `95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e`
-
-The mapping sameness identifier is `mapping:laCICCqysqaGOK67zD_j4PIp2nWotb27nz-M1eHkKG4`.
-:::
+The mapping sameness identifier is `mapping:95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e`.
 
 ::: {.callout-note title="Identifier of example 2"}
 The string is `http://example.org/blue|http://example.org/red http://www.w3.org/2004/02/skos/core#closeMatch http://example.com/green`.
 
-The SHA-256 digest (hex) is `424e7a86ea29d5a0aaf1d3d7da9a864b48121ac465c67163aef56f6f87bb1ba8`
-
-The mapping sameness identifier is `mapping:~Qk56huop1aCq8dPX2pqGS0gSGsRlxnFjrvVvb4e7G6g`
+The mapping sameness identifier is `mapping:~424e7a86ea29d5a0aaf1d3d7da9a864b48121ac465c67163aef56f6f87bb1ba8` .
 :::
 
 # References
@@ -124,10 +119,6 @@ The mapping sameness identifier is `mapping:~Qk56huop1aCq8dPX2pqGS0gSGsRlxnFjrvV
 - Eastlake D. and Hansen T.: _US Secure Hash Algorithms_.
   RFC 6234, May 2011.
   <https://www.rfc-editor.org/info/rfc2634>.
-
-- Josefsson, S: _The Base16, Base32, and Base64 Data Encodings_.
-  RFC 4648, October 2006.
-  <https://www.rfc-editor.org/info/rfc4646>.
 
 - Leiba, B.:  _Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words_.
   BCP 14, RFC 8174, May 2017,
