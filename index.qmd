@@ -2,12 +2,14 @@
 title: Mapping Sameness Identifier
 subtitle: Version 0.0.0
 date: today
-doi: 10.5281/zenodo.XXXX
+# TODO
+# doi: 10.5281/zenodo.XXXX
 authors:
 - name: Jakob Voß
   orcid: 0000-0002-7613-4123
   affiliations:
    - name: Verbundzentrale des GBV (VZG)
+     ror: 048vdhs48
 - name: Charles Tapley Hoyt
   orcid: 0000-0003-4423-4370
   affiliations:
@@ -19,14 +21,14 @@ abstract: |
 
 # Introduction
 
-Mappings (also known as *terminology mappings*, *correspondences*, or *semantic alignments*) are relevant to integrate and to compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of mapping identifiers exist:
+Mappings (also known as **terminology mappings**, **correspondences**, or **semantic alignments**) are relevant to integrate and to compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of identifiers exist:
 
 - **Assigned identifiers** must explicitly be generated once by the source of a mapping and carried along with it.
-- **Derived identifiers** (also known as *content-based identifiers*) can be generated automatically from the content of a mapping.
+- **Content-based identifiers** can be derived automatically from the content of a mapping.
 
-This specification defines a derived identifier for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.
+This specification defines a content-based identifier for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.
 
-This specification consists of a definition of [mapping content](#mappings) and the definition of a method to [derive an identifier](#identifier) from the content. The method does not depend on any specific data format or programming language.
+This specification consists of a definition of [mapping content](#mappings) and the definition of a method to [derive a mapping sameness identifier](#identifier) from the content. The method does not depend on any specific data format or programming language. The normative part of this specification is limited to [section 2](#definitions), [section 3](#identifier), and its references, excluding examples and notes. The appendix contains [examples](#examples) and [implementations](#implementations) for illustration.
 
 # Definitions
 
@@ -142,11 +144,11 @@ The mapping sameness identifier is `mapping:~424e7a86ea29d5a0aaf1d3d7da9a864b481
 - Voß, J.: _JSKOS data format for Knowledge Organization Systems_.
   Version 0.7.1, January 2026. <https://gbv.github.io/jskos/>
 
-# Appendices {-}
+# Appendix
 
 The following information is non-normative.
 
-## Examples
+## Examples {-}
 
 ### SSSOM {-}
 
@@ -154,26 +156,26 @@ Mappings can be expressed in the [Simple Standard for Sharing Ontological Mappin
 in a tabular format:
 
 ~~~tsv
-#curie_map:
-#  ex: https://example.org
-#  owl: http://www.w3.org/2002/07/owl#
-#  semapv: https://w3id.org/semapv/vocab/
-#mapping_set_id: https://example.org/example.sssom.tsv
-subject_id  predicate_id    object_id   mapping_justification
-ex:feline   owl:sameAs  ex:cat  semapv:UnspecifiedMatching
+# curie_map:
+#   ex: https://example.org
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+# mapping_set_id: https://example.org/example.sssom.tsv
+subject_id	predicate_id	object_id	mapping_justification
+ex:feline	owl:sameAs	ex:cat	semapv:UnspecifiedMatching
 ~~~
 
 Negative mappings can be specified in SSSOM with the [`predicate_modifier`](https://w3id.org/sssom/predicate_modifier)
 column:
 
 ~~~tsv
-#curie_map:
-#  ex: https://example.org
-#  owl: http://www.w3.org/2002/07/owl#
-#  semapv: https://w3id.org/semapv/vocab/
-#mapping_set_id: https://example.org/example.sssom.tsv
-subject_id  predicate_id    predicate_modifier    object_id   mapping_justification
-ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching
+# curie_map:
+#   ex: https://example.org
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+# mapping_set_id: https://example.org/example.sssom.tsv
+subject_id	predicate_id	predicate_modifier	object_id	mapping_justification
+ex:feline	owl:sameAs	Not	ex:dog	semapv:UnspecifiedMatching
 ~~~
 
 ### JSKOS {-}
@@ -250,7 +252,7 @@ The following scripts expect a JSON object with fields `subjects`, `predicate`, 
 {{< include implementation/cli.sh >}}
 ~~~
 
-## Changes {.unnumbered}
+## Changes {-}
 
 This document is managed in a revision control system at <https://github.com/ts4nfdi/mapping-sameness-identifier>, including an [issue tracker](https://github.com/ts4nfdi/mapping-sameness-identifier/issues).
 
@@ -258,7 +260,7 @@ This document is managed in a revision control system at <https://github.com/ts4
 
   Working draft
 
-## Acknowledgements {.unnumbered}
+## Acknowledgements {-}
 
-...
+Groundwork of this specification  was laid out at the second TS4NFDI Community Hands-On Workshop, March 2026 in Leipzig. We thank all participants and organizers.
 

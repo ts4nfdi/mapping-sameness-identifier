@@ -13,8 +13,7 @@ format:
     css: style.css
     highlight-style: kate
     code-tools:
-      source: "https://github.com/ts4nfdi/mapping-sameness-identifier
-repo"
+      source: https://github.com/ts4nfdi/mapping-sameness-identifier
     notebook-links: false
   # requires install  texlive-fonts-extra
   pdf:

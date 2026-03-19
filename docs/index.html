@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-18">
+<meta name="dcterms.date" content="2026-03-19">
 
 <title>Mapping Sameness Identifier</title>
 <style>
@@ -76,11 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ">
 <meta name="citation_author" content="Jakob Voß">
 <meta name="citation_author" content="Charles Tapley Hoyt">
-<meta name="citation_publication_date" content="2026-03-18">
-<meta name="citation_cover_date" content="2026-03-18">
+<meta name="citation_publication_date" content="2026-03-19">
+<meta name="citation_cover_date" content="2026-03-19">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-03-18">
-<meta name="citation_doi" content="10.5281/zenodo.XXXX">
+<meta name="citation_online_date" content="2026-03-19">
 <meta name="citation_language" content="en">
 </head>
 
@@ -89,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Mapping Sameness Identifier</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/ts4nfdi/mapping-sameness-identifier repo"><i class="bi"></i> Code</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Mapping Sameness Identifier</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/ts4nfdi/mapping-sameness-identifier"><i class="bi"></i> Code</button></div></div>
             <p class="subtitle lead">Version 0.0.0</p>
           </div>
 
@@ -124,19 +123,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">March 18, 2026</p>
+              <p class="date">March 19, 2026</p>
             </div>
           </div>
           
                 
-                <div>
-            <div class="quarto-title-meta-heading">Doi</div>
-            <div class="quarto-title-meta-contents">
-              <p class="doi">
-                <a href="https://doi.org/10.5281/zenodo.XXXX">10.5281/zenodo.XXXX</a>
-              </p>
-            </div>
-          </div>
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
@@ -171,9 +162,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#normative-references" id="toc-normative-references" class="nav-link" data-scroll-target="#normative-references"><span class="header-section-number">4.1</span> Normative References</a></li>
   <li><a href="#informative-references" id="toc-informative-references" class="nav-link" data-scroll-target="#informative-references"><span class="header-section-number">4.2</span> Informative references</a></li>
   </ul></li>
-  <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">5</span> Appendix</a>
   <ul class="collapse">
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">4.3</span> Examples</a>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
   <ul class="collapse">
   <li><a href="#sssom" id="toc-sssom" class="nav-link" data-scroll-target="#sssom">SSSOM</a></li>
   <li><a href="#jskos" id="toc-jskos" class="nav-link" data-scroll-target="#jskos">JSKOS</a></li>
@@ -201,13 +192,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>Mappings (also known as <em>terminology mappings</em>, <em>correspondences</em>, or <em>semantic alignments</em>) are relevant to integrate and to compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of mapping identifiers exist:</p>
+<p>Mappings (also known as <strong>terminology mappings</strong>, <strong>correspondences</strong>, or <strong>semantic alignments</strong>) are relevant to integrate and to compare data from diverse sources. If mappings are managed in distributed environments, there is a need to reference individual mappings with an identifier. Two kinds of identifiers exist:</p>
 <ul>
 <li><strong>Assigned identifiers</strong> must explicitly be generated once by the source of a mapping and carried along with it.</li>
-<li><strong>Derived identifiers</strong> (also known as <em>content-based identifiers</em>) can be generated automatically from the content of a mapping.</li>
+<li><strong>Content-based identifiers</strong> can be derived automatically from the content of a mapping.</li>
 </ul>
-<p>This specification defines a derived identifier for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.</p>
-<p>This specification consists of a definition of <a href="#mappings">mapping content</a> and the definition of a method to <a href="#identifier">derive an identifier</a> from the content. The method does not depend on any specific data format or programming language.</p>
+<p>This specification defines a content-based identifier for mappings. One use case is the distributed review of mappings: if some mapping is reviewed, the review should apply to other mappings with same content, independent from when, where, and by whom the mapping was created.</p>
+<p>This specification consists of a definition of <a href="#mappings">mapping content</a> and the definition of a method to <a href="#identifier">derive a mapping sameness identifier</a> from the content. The method does not depend on any specific data format or programming language. The normative part of this specification is limited to <a href="#definitions">section 2</a>, <a href="#identifier">section 3</a>, and its references, excluding examples and notes. The appendix contains <a href="#examples">examples</a> and <a href="#implementations">implementations</a> for illustration.</p>
 </section>
 <section id="definitions" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Definitions</h1>
@@ -358,29 +349,29 @@ Identifier of example 2
 </ul>
 </section>
 </section>
-<section id="appendices" class="level1 unnumbered">
-<h1 class="unnumbered">Appendices</h1>
+<section id="appendix" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Appendix</h1>
 <p>The following information is non-normative.</p>
-<section id="examples" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.3</span> Examples</h2>
+<section id="examples" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="examples">Examples</h2>
 <section id="sssom" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="sssom">SSSOM</h3>
 <p>Mappings can be expressed in the <a href="https://mapping-commons.github.io/sssom/">Simple Standard for Sharing Ontological Mappings (SSSOM)</a> in a tabular format:</p>
-<pre class="tsv"><code>#curie_map:
-#  ex: https://example.org
-#  owl: http://www.w3.org/2002/07/owl#
-#  semapv: https://w3id.org/semapv/vocab/
-#mapping_set_id: https://example.org/example.sssom.tsv
+<pre class="tsv"><code># curie_map:
+#   ex: https://example.org
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+# mapping_set_id: https://example.org/example.sssom.tsv
 subject_id  predicate_id    object_id   mapping_justification
 ex:feline   owl:sameAs  ex:cat  semapv:UnspecifiedMatching</code></pre>
 <p>Negative mappings can be specified in SSSOM with the <a href="https://w3id.org/sssom/predicate_modifier"><code>predicate_modifier</code></a> column:</p>
-<pre class="tsv"><code>#curie_map:
-#  ex: https://example.org
-#  owl: http://www.w3.org/2002/07/owl#
-#  semapv: https://w3id.org/semapv/vocab/
-#mapping_set_id: https://example.org/example.sssom.tsv
-subject_id  predicate_id    predicate_modifier    object_id   mapping_justification
-ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching</code></pre>
+<pre class="tsv"><code># curie_map:
+#   ex: https://example.org
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+# mapping_set_id: https://example.org/example.sssom.tsv
+subject_id  predicate_id    predicate_modifier  object_id   mapping_justification
+ex:feline   owl:sameAs  Not ex:dog  semapv:UnspecifiedMatching</code></pre>
 </section>
 <section id="jskos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="jskos">JSKOS</h3>
@@ -474,7 +465,7 @@ ex:feline   owl:sameAs  Not  ex:dog  semapv:UnspecifiedMatching</code></pre>
 </section>
 <section id="acknowledgements" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
-<p>…</p>
+<p>Groundwork of this specification was laid out at the second TS4NFDI Community Hands-On Workshop, March 2026 in Leipzig. We thank all participants and organizers.</p>
 </section>
 </section>
 
