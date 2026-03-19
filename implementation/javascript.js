@@ -1,5 +1,5 @@
 // from <https://github.com/tc39/proposal-compare-strings-by-codepoint?tab=readme-ov-file#manual-iteration>
-String.codePointCompare = (left, right) => {
+function codePointCompare (left, right) {
   const leftIter = left[Symbol.iterator]()
   const rightIter = right[Symbol.iterator]()
   for (;;) {
@@ -21,15 +21,22 @@ String.codePointCompare = (left, right) => {
   }
 }
 
-import crypto from "crypto"
-import fs from "fs"
+// only available at NodeJS, use window.crypto.subtle.digest on modern browsers
+import crypto from "crypto" 
 
-const { subjects, objects, predicate, negativity } = JSON.parse(fs.readFileSync(0, 'utf-8'))
-subjects.sort(String.codePointCompare)
-objects.sort(String.codePointCompare)
+function mappingSamenessIdentifier(mapping) {
+  const { subjects, objects, predicate, negativity } = mapping
 
-const str = [subjects.join("|"), predicate, objects.join("|")].join(" ")
-const bytes = new TextEncoder().encode(str)
-const digest = crypto.createHash('sha256').update(Buffer.from(bytes)).digest("hex")
+  subjects.sort(codePointCompare)
+  objects.sort(codePointCompare)
+
+  const str = [subjects.join("|"), predicate, objects.join("|")].join(" ")
+  const bytes = new TextEncoder().encode(str)
+  const digest = crypto.createHash('sha256').update(Buffer.from(bytes)).digest("hex")
   
-console.log(`mapping:${negativity ? "~" : ""}${digest}`)
+  return `mapping:${negativity ? "~" : ""}${digest}`
+}
+
+
+import fs from "fs"
+console.log(mappingSamenessIdentifier(JSON.parse(fs.readFileSync(0, 'utf-8'))))
