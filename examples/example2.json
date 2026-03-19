@@ -2,5 +2,6 @@
   "subjects": ["http://example.org/red", "http://example.org/blue"],
   "objects": ["http://example.com/green"],
   "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
-  "negative": true
+  "negativity": true,
+  "id": "mapping:~424e7a86ea29d5a0aaf1d3d7da9a864b48121ac465c67163aef56f6f87bb1ba8"
 }

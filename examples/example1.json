@@ -2,5 +2,6 @@
   "subjects": ["http://example.org/feline"],
   "objects": ["http://example.com/cat"],
   "predicate": "http://www.w3.org/2002/07/owl#sameAs",
-  "negative": false
+  "negativity": false,
+  "id": "mapping:95a088082ab2b2a68638aebbcc3fe3e0f229da75a8b5bdbb9f3f8cd5e1e4286e"
 }
