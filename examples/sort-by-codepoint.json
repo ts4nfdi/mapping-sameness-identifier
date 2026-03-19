@@ -1,0 +1,7 @@
+{
+  "subjects": ["x:\uff42","x:𝖺","x:c"],
+  "objects": ["x:letter"],
+  "predicate": "x:is",
+  "negativity": false,
+  "id": "mapping:d1bbf3098de14c48971f01b3c884c7657fc42f00edabe1065045ce50e5966678"
+}
