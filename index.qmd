@@ -49,7 +49,7 @@ IRIs must be absolute as specificied in [RFC 3987]. IRIs SHOULD be based on NFC-
 
 A mapping is also called **1-to-1 mapping**, if both subjects and objects contain exactely one IRI each.
 
-::: {.callout-tip title="Informative Notes"}
+::: {.callout-tip title="Note"}
 Applications may **restrict or extend mappings**, for instance by:
 
 - limitation to 1-to-1-mappings
@@ -86,10 +86,10 @@ A **mapping sameness identifier** is created from a Unicode string consisting of
 
 The resulting string is encoded in UTF-8, then hashed with SHA-256 ([RFC 6234]), and the digest is serialized in hexadecimal form with lowercase letters. A tilde (`~`, U+007E) is prepended if the mapping is negative.
 
-To use a mapping sameness identifier as IRI, the generated string is appended to URI namespace string `mapping:` (TODO: define an official namespace).
+To use a mapping sameness identifier as IRI, the generated string is appended to URI namespace string `mapping:`.
 
 ::: {.callout-warning}
-Some programming languages, such as Python, sort strings by Unicode Code Points. JavaScript sorts by UTF-16 value instead. If IRIs don't include characters in the range U+010000 to U+10FFFF there is no difference. 
+The URI prefix `mapping:` has not been registered at IANA yet, so this may change.
 :::
 
 ::: {.callout-note title="Identifier of example 1"}
@@ -152,8 +152,7 @@ The following information is non-normative.
 
 ### SSSOM {-}
 
-Mappings can be expressed in the [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/)
-in a tabular format:
+Mappings can be expressed in the [Simple Standard for Sharing Ontological Mappings (SSSOM)](https://mapping-commons.github.io/sssom/) in a tabular format:
 
 ~~~tsv
 # curie_map:
@@ -165,8 +164,7 @@ subject_id	predicate_id	object_id	mapping_justification
 ex:feline	owl:sameAs	ex:cat	semapv:UnspecifiedMatching
 ~~~
 
-Negative mappings can be specified in SSSOM with the [`predicate_modifier`](https://w3id.org/sssom/predicate_modifier)
-column:
+Negative mappings can be specified in SSSOM with the [`predicate_modifier`](https://w3id.org/sssom/predicate_modifier) column:
 
 ~~~tsv
 # curie_map:
@@ -177,6 +175,8 @@ column:
 subject_id	predicate_id	predicate_modifier	object_id	mapping_justification
 ex:feline	owl:sameAs	Not	ex:dog	semapv:UnspecifiedMatching
 ~~~
+
+SSSOM only supports 1-to-1 mappings.
 
 ### JSKOS {-}
 
@@ -238,7 +238,7 @@ Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require 
 
 ## Implementations {-}
 
-The following scripts expect a JSON object with fields `subjects`, `predicate`, `objects`, and `negative` from standard input.
+The following scripts expect a JSON object with fields `subjects`, `predicate`, `objects`, and `negativity` from standard input.
 
 ### Python {-}
 
@@ -250,6 +250,28 @@ The following scripts expect a JSON object with fields `subjects`, `predicate`, 
 
 ~~~sh
 {{< include implementation/cli.sh >}}
+~~~
+
+### JavaScript {-}
+
+::: {.callout-tip title="Note"}
+The script assumes an additional method `String.codePointCompare` to compare strings by Unicode Code Point. 
+See [this TC39 proposal](http://tc39.es/proposal-compare-strings-by-codepoint/) for an implementation.
+:::
+
+~~~js
+import crypto from "crypto"
+import fs from "fs"
+
+const { subjects, objects, predicate, negativity } = JSON.parse(fs.readFileSync(0, 'utf-8'))
+subjects.sort(String.codePointCompare)
+objects.sort(String.codePointCompare)
+
+const str = [subjects.join("|"), predicate, objects.join("|")].join(" ")
+const bytes = new TextEncoder().encode(str)
+const digest = crypto.createHash('sha256').update(Buffer.from(bytes)).digest("hex")
+  
+console.log(`mapping:${negativity ? "~" : ""}${digest}`)
 ~~~
 
 ## Changes {-}
