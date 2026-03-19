@@ -43,7 +43,7 @@ A **mapping** is a 4-tuple of:
 - **subjects**: a non-empty set of IRI
 - **objects**: a non-empty set of IRI
 - **predicate**: an absolute IRI, also known as mapping type
-- **truth value**: either true for affirmative mappings or false for negative mappings
+- **negativity**: either false for affirmative mappings or true for negative mappings
 
 IRIs must be absolute as specificied in [RFC 3987]. IRIs SHOULD be based on NFC-normalized Unicode strings (see [RFC 3987] section 5.3.2.4).
 
@@ -66,14 +66,14 @@ The definiton of a mapping roughly corresponds to a an edge in a **directed hype
 - subjects: `http://example.org/feline`
 - objects: `http://example.com/cat`
 - predicate: `http://www.w3.org/2002/07/owl#sameAs`
-- truth value: `true`
+- negativity: `false`
 :::
    
 ::: {.callout-note title="Example 2: A more complex mapping"}
 - subjects: `http://example.org/red` and `http://example.org/blue`
 - objects: `http://example.com/green`
 - predicate: `http://www.w3.org/2004/02/skos/core#closeMatch`
-- truth value: `false`
+- negativity: `true`
 :::
 
 # Identifier
