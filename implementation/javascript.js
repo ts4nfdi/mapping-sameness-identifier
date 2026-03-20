@@ -34,7 +34,7 @@ function mappingSamenessIdentifier(mapping) {
   const bytes = new TextEncoder().encode(str)
   const digest = crypto.createHash('sha256').update(Buffer.from(bytes)).digest("hex")
   
-  return `mapping:${negativity ? "~" : ""}${digest}`
+  return `mapping:${digest}${negativity ? "~" : ""}`
 }
 
 
