@@ -292,7 +292,9 @@ console.log(`mapping:${digest}${negativity ? "~" : ""}`)
 
 ### Packages {-}
 
-- [`sssom-pydantic`](https://github.com/cthoyt/sssom-pydantic) is an implementation of SSSOM in Python that contains an implementation the Mapping Sameness Identifier (see [usage](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.api.hash_triple.html))
+- [`sssom-pydantic`](https://github.com/cthoyt/sssom-pydantic) is an implementation of SSSOM in Python that contains an implementation of the Mapping Sameness Identifier (see [usage](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.api.hash_triple.html))
+- [`jskos-tools`](https://www.npmjs.com/package/jskos-tools) is a JavaScript library that contains an implementation of the Mapping Sameness Identifier (see [usage](https://www.npmjs.com/package/jskos-tools#mappingsamenessidentifier))
+- [`SSSOM-Java`](https://github.com/gouttegd/sssom-java/) is an implementation of SSSOM in Java that contains an implementation of the Mapping Sameness Identifier (see [javadocs](https://incenp.org/dvlpt/sssom-java/apidocs/org/incenp/obofoundry/sssom/MappingHasher.html))
 
 ## Changes {-}
 
