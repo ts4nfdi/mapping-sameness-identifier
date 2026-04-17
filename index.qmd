@@ -290,6 +290,10 @@ const digest = crypto.createHash('sha256').update(Buffer.from(bytes)).digest("he
 console.log(`mapping:${digest}${negativity ? "~" : ""}`)
 ~~~
 
+### Packages {-}
+
+- [`sssom-pydantic`](https://github.com/cthoyt/sssom-pydantic) is an implementation of SSSOM in Python that contains an implementation the Mapping Sameness Identifier (see [usage](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.api.hash_triple.html))
+
 ## Changes {-}
 
 This document is managed in a revision control system at <https://github.com/ts4nfdi/mapping-sameness-identifier>, including an [issue tracker](https://github.com/ts4nfdi/mapping-sameness-identifier/issues).
