@@ -1,6 +1,6 @@
 ---
 title: Mapping Sameness Identifier
-subtitle: Version 0.0.0
+subtitle: Version 0.9.0
 date: today
 # TODO
 # doi: 10.5281/zenodo.XXXX
@@ -300,7 +300,7 @@ console.log(`mapping:${digest}${negativity ? "~" : ""}`)
 
 This document is managed in a revision control system at <https://github.com/ts4nfdi/mapping-sameness-identifier>, including an [issue tracker](https://github.com/ts4nfdi/mapping-sameness-identifier/issues).
 
-- **Version 0.0.0**
+- **Version 0.9.0**
 
   Working draft
 
