@@ -266,14 +266,6 @@ Does not require any additional packages.
 {{< include implementation/python.py >}}
 ~~~
 
-#### Command line {-}
-
-Requires additional tool [jq](https://jqlang.org/).
-
-~~~sh
-{{< include implementation/cli.sh >}}
-~~~
-
 #### JavaScript {-}
 
 Requires method `String.codePointCompare` to compare strings by Unicode Code Point. See [this TC39 proposal](http://tc39.es/proposal-compare-strings-by-codepoint/) for an implementation. For JavaScript in the browser use the Web Cryptograpghy API function [`webcrypto.subtle.digest`](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest) instead of Node module `crypto`.
@@ -282,11 +274,29 @@ Requires method `String.codePointCompare` to compare strings by Unicode Code Poi
 {{< include implementation/javascript.js >}}
 ~~~
 
+#### Java {-}
+
+Requires a package to parse JSON such as Jackson. Calculation of SHA-256 hash can be done with built in `MessageDigest` or with a more convenient library such as Apache Commons Codecs:
+
+~~~java
+{{< include implementation/MappingSamenessIdentifier.java >}}
+~~~
+
+#### Command line {-}
+
+Requires additional tool [jq](https://jqlang.org/).
+
+~~~sh
+{{< include implementation/cli.sh >}}
+~~~
+
+
 ### Packages {-}
 
 - [`sssom-pydantic`](https://github.com/cthoyt/sssom-pydantic) is an implementation of SSSOM in Python that contains an implementation of the Mapping Sameness Identifier (see [usage](https://sssom-pydantic.readthedocs.io/en/latest/api/sssom_pydantic.api.hash_triple.html))
 - [`jskos-tools`](https://www.npmjs.com/package/jskos-tools) is a JavaScript library that contains an implementation of the Mapping Sameness Identifier (see [usage](https://www.npmjs.com/package/jskos-tools#mappingsamenessidentifier))
-- [`SSSOM-Java`](https://github.com/gouttegd/sssom-java/) is an implementation of SSSOM in Java that contains an implementation of the Mapping Sameness Identifier (see [javadocs](https://incenp.org/dvlpt/sssom-java/apidocs/org/incenp/obofoundry/sssom/MappingHasher.html))
+
+<!-- [`SSSOM-Java`](https://github.com/gouttegd/sssom-java/) is an implementation of SSSOM in Java that contains an implementation of the Mapping Sameness Identifier (see [javadocs](https://incenp.org/dvlpt/sssom-java/apidocs/org/incenp/obofoundry/sssom/MappingHasher.html)) -->
 
 ## Changes {-}
 
