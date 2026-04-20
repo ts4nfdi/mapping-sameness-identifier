@@ -160,7 +160,7 @@ http://example.org/set/2/mapping:424e7a86ea29d5a0aaf1d3d7da9a864b48121ac465c6716
 - Voß, J.: _JSKOS data format for Knowledge Organization Systems_.
   Version 0.7.1, January 2026. <https://gbv.github.io/jskos/>
 
-# Appendix
+# Appendix {-}
 
 The following information is non-normative.
 
@@ -254,40 +254,32 @@ Expressing negative mappings and mappings beyond 1-to-1 mappings in RDF require 
 
 ## Implementations {-}
 
-The following scripts expect a JSON object with fields `subjects`, `predicate`, `objects`, and `negativity` from standard input.
+### Scripts {-}
 
-### Python {-}
+The following sample scripts expect a JSON object with fields `subjects`, `predicate`, `objects`, and `negativity` from standard input.
+
+#### Python {-}
+
+Does not require any additional packages.
 
 ~~~python
 {{< include implementation/python.py >}}
 ~~~
 
-### Command line tools {-}
+#### Command line {-}
+
+Requires additional tool [jq](https://jqlang.org/).
 
 ~~~sh
 {{< include implementation/cli.sh >}}
 ~~~
 
-### JavaScript {-}
+#### JavaScript {-}
 
-::: {.callout-tip title="Note"}
-The script assumes an additional method `String.codePointCompare` to compare strings by Unicode Code Point. 
-See [this TC39 proposal](http://tc39.es/proposal-compare-strings-by-codepoint/) for an implementation.
-:::
+Requires method `String.codePointCompare` to compare strings by Unicode Code Point. See [this TC39 proposal](http://tc39.es/proposal-compare-strings-by-codepoint/) for an implementation. For JavaScript in the browser use the Web Cryptograpghy API function [`webcrypto.subtle.digest`](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest) instead of Node module `crypto`.
 
 ~~~js
-import crypto from "crypto"
-import fs from "fs"
-
-const { subjects, objects, predicate, negativity } = JSON.parse(fs.readFileSync(0, 'utf-8'))
-subjects.sort(String.codePointCompare)
-objects.sort(String.codePointCompare)
-
-const str = [subjects.join("|"), predicate, objects.join("|")].join(" ")
-const bytes = new TextEncoder().encode(str)
-const digest = crypto.createHash('sha256').update(Buffer.from(bytes)).digest("hex")
-  
-console.log(`mapping:${digest}${negativity ? "~" : ""}`)
+{{< include implementation/javascript.js >}}
 ~~~
 
 ### Packages {-}
