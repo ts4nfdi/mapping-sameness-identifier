@@ -14,9 +14,10 @@ public class MappingSamenessIdentifier {
     JsonNode mapping = new ObjectMapper().readTree(System.in);
     String elements = joinSorted(mapping.get("subjects")) + " "
                     + mapping.get("predicate").asText() + " "
-                    + joinSorted(mapping.get("objects"))
-                    + (mapping.path("negativity").asBoolean() ? "~" : "");
-    System.out.println(DigestUtils.sha256Hex(elements));
+                    + joinSorted(mapping.get("objects"));
+    System.out.println("mapping:" 
+                    + DigestUtils.sha256Hex(elements)
+                    + (mapping.path("negativity").asBoolean() ? "~" : ""));
   }
 
   private static String joinSorted(JsonNode arrayNode) {
